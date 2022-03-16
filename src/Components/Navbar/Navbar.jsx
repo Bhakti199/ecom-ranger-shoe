@@ -4,6 +4,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillHeart } from "react-icons/ai";
 import { RiShoppingCart2Fill } from "react-icons/ri";
 import { FiLogOut } from "react-icons/fi";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   return (
@@ -13,7 +14,9 @@ export const Navbar = () => {
       </div>
 
       <div className="min-bold nav-standard-item-sectionOne flex list">
-        <div className="ranger-ui navbar-name">RangerShoe</div>
+        <Link to="/" className="ranger-ui navbar-name">
+          RangerShoe
+        </Link>
       </div>
       <ul className="nav-standard-item-sectionTwo flex list">
         <li className="nav-standard-list-item min-bold">
