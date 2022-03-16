@@ -1,0 +1,11 @@
+.main {
+  padding: 1rem;
+  margin: 5rem 1rem 1rem 18.7rem;
+  height: 100%;
+  background-color: var(--blue-bg-color);
+}
+.products {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+}

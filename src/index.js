@@ -4,15 +4,17 @@ import "./index.css";
 import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
+import { ProductListProvider } from "./Context/index";
 
-// Call make Server
 makeServer();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ProductListProvider>
+      <Router>
+        <App />
+      </Router>
+    </ProductListProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
