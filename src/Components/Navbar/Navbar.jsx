@@ -1,5 +1,6 @@
 import React from "react";
 import "./Navbar.css";
+import Categories from "../../Components/Categories/Categories";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { AiFillHeart } from "react-icons/ai";
 import { RiShoppingCart2Fill } from "react-icons/ri";
@@ -17,6 +18,9 @@ export const Navbar = () => {
         <Link to="/" className="ranger-ui navbar-name">
           RangerShoe
         </Link>
+      </div>
+      <div>
+        <Categories />
       </div>
       <ul className="nav-standard-item-sectionTwo flex list">
         <li className="nav-standard-list-item min-bold">

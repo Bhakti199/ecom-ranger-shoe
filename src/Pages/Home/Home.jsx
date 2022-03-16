@@ -3,17 +3,6 @@ import "./Home.css";
 export const Home = () => {
   return (
     <div className="landing-page flex-col">
-      <div className="search-bar-container flex">
-        <div className="search flex-row">
-          <i className="search-icon fa-solid fa-magnifying-glass"></i>
-          <input
-            className="search-input"
-            type="text"
-            placeholder="Search for brands and more"
-          />
-        </div>
-      </div>
-
       <div className="landing-page-img">
         <Link to="/product-listing">
           <img

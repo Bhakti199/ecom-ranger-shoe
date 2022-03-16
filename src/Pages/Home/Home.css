@@ -36,7 +36,3 @@
   color: var(--dark-green);
 }
 /* search */
-.search-bar-container {
-  padding: 0.5rem 0;
-  justify-content: center;
-}
