@@ -3,6 +3,9 @@
   gap: 2rem;
   justify-content: center;
 }
+.category {
+  color: black;
+}
 .category:hover {
   color: var(--medium-blue);
   cursor: pointer;

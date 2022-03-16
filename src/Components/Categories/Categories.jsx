@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
 import "./Categories.css";
+import { Link } from "react-router-dom";
 const Categories = () => {
   const [categoryList, setCategoryList] = useState([]);
 
@@ -21,9 +22,13 @@ const Categories = () => {
   return (
     <div className="categories">
       {categoryList.map((category) => (
-        <h3 key={category._id} className="category">
+        <Link
+          to={`/product-listing?categoryName=${category.categoryName}`}
+          key={category._id}
+          className="category"
+        >
           {category.categoryName}
-        </h3>
+        </Link>
       ))}
     </div>
   );
