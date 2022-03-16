@@ -1,6 +1,7 @@
 import { useProductList } from "../../Context/index";
-import { AiOutlineHeart } from "react-icons/ai";
 import { BsFillStarFill } from "react-icons/bs";
+import { AiOutlineHeart } from "react-icons/ai";
+
 export const ProductCard = () => {
   const { productList } = useProductList();
   return (
