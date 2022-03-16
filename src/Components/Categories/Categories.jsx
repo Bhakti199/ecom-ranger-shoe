@@ -10,10 +10,10 @@ const Categories = () => {
   useEffect(() => {
     (async () => {
       try {
-        const response = await axios.get("/api/categories");
-        const listCategory = response.data.categories;
-        console.log(listCategory);
-        setCategoryList(listCategory);
+        const {
+          data: { categories },
+        } = await axios.get("/api/categories");
+        setCategoryList(categories);
       } catch {
         console.log("error occured.");
       }
