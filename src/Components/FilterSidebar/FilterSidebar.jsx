@@ -46,7 +46,12 @@ export const FilterSidebar = () => {
       </div>
       <div className="drawer-item-wrapper flex-col">
         <p className="margin-top-bottom-zero filter-heading">SORT BY</p>
-        <p className="margin-top-bottom-zero">Clear Price</p>
+        <p
+          className="margin-top-bottom-zero"
+          onClick={() => dispatch({ type: "UNSET_PRICE" })}
+        >
+          Clear Price
+        </p>
         <div>
           <ul className="list margin-top-bottom-zero flex-col sort-by-list">
             <li className="flex-row sort-by-item">
