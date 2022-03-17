@@ -9,3 +9,6 @@ body {
   border: none;
   background-color: transparent;
 }
+.justify {
+  text-align: justify;
+}

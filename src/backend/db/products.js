@@ -50,7 +50,7 @@ export const products = [
     img: "./assets/product-4.jpg",
     productBrand: "Puma",
     categoryName: "Men",
-    productDetail: "Ferrari X-Ray Speed Running Shoes For Men  (White)",
+    productDetail: "Ferrari X-Ray Speed Running Shoes For Men",
     originalPrice: 3500,
     price: 1700,
     discount: 30,
