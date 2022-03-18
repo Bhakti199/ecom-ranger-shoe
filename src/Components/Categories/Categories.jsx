@@ -2,9 +2,10 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import "./Categories.css";
 import { Link } from "react-router-dom";
-const Categories = () => {
+import { useFilter } from "../../Context/FilterContext/FilterProvider";
+export const Categories = () => {
   const [categoryList, setCategoryList] = useState([]);
-
+  const { state, dispatch } = useFilter();
   useEffect(() => {
     (async () => {
       try {
@@ -24,6 +25,9 @@ const Categories = () => {
           to={`/product-listing?categoryName=${category.categoryName}`}
           key={category._id}
           className="category"
+          onClick={() =>
+            dispatch({ type: "SET_CATEGORY", payload: category.categoryName })
+          }
         >
           {category.categoryName}
         </Link>
@@ -31,5 +35,3 @@ const Categories = () => {
     </div>
   );
 };
-
-export default Categories;

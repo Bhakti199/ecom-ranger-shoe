@@ -3,9 +3,10 @@
   top: 5rem;
   left: 0;
   width: 18rem;
-  height: 90vh;
+  height: 85vh;
   overflow-y: scroll;
   border-right: 1px solid var(--light-grey);
+  padding-bottom: 2rem;
 }
 .filter-heading {
   color: var(--dark-black);
@@ -53,5 +54,3 @@
   border: none;
   background-color: transparent;
 }
-
-/* product listing */

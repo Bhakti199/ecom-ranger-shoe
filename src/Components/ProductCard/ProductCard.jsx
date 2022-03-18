@@ -1,12 +1,12 @@
 import { useProductList } from "../../Context/index";
 import { BsFillStarFill } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
-
+import { useFilter } from "../../Context/index";
 export const ProductCard = () => {
-  const { productList } = useProductList();
+  const { showProductList } = useFilter();
   return (
     <>
-      {productList.map(
+      {showProductList.map(
         ({
           id,
           img,

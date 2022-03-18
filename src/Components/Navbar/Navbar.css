@@ -20,7 +20,16 @@
 .icon-hover:hover {
   color: var(--medium-blue);
 }
-
+.category {
+  color: black;
+}
+.category:hover {
+  color: var(--medium-blue);
+  cursor: pointer;
+}
+.all-category {
+  margin-right: 2rem;
+}
 @media only screen and (max-width: 700px) {
   .nav-standard-list-item {
     display: none;
