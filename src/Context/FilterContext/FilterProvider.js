@@ -8,6 +8,7 @@ const FilterProvider = ({ children }) => {
   const { productList } = useProductList();
 
   const initialValue = {
+    category: "",
     sortByRange: 0,
     sortByPrice: "",
     sortByBrand: [],
