@@ -1,7 +1,6 @@
 import "./App.css";
 import { Navbar } from "./Components/Index";
-import { Home } from "./Pages/index";
-import { ProductListingPage } from "./Pages/index";
+import { Home, ProductListingPage } from "./Pages/index";
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 function App() {

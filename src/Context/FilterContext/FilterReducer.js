@@ -1,5 +1,9 @@
 export const filterManagement = (state, action) => {
   switch (action.type) {
+    case "SET_CATEGORY":
+      return { ...state, category: action.payload };
+    case "CLEAR_CATEGORY":
+      return { ...state, category: "" };
     case "FILTER_BY_RANGE":
       return {
         ...state,
@@ -75,6 +79,7 @@ export const filterManagement = (state, action) => {
       };
     case "CLEAR_ALL_FILTERS":
       return {
+        category: "",
         sortByRange: 0,
         sortByPrice: "",
         sortByBrand: [],

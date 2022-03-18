@@ -2,6 +2,17 @@ const composeFunction = (state, functionList, data) =>
   functionList.reduce((accumulator, currentFunction) => {
     return currentFunction(accumulator, state);
   }, data);
+const productListByCategory = (productList, state) => {
+  if (state.category === "") return productList;
+  if (state.category === "Men")
+    return [...productList].filter(
+      (product) => product.categoryName === state.category
+    );
+  if (state.category === "Women")
+    return [...productList].filter(
+      (product) => product.categoryName === state.category
+    );
+};
 
 const productListByRange = (productList, state) =>
   state.sortByRange === 0
@@ -50,6 +61,7 @@ const productListByBrand = (productList, state) => {
 };
 
 const functionList = [
+  productListByCategory,
   productListByRange,
   productListByPrice,
   productListExcludingOutOfStock,
