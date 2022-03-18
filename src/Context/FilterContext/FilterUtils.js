@@ -3,15 +3,18 @@ const composeFunction = (state, functionList, data) =>
     return currentFunction(accumulator, state);
   }, data);
 const productListByCategory = (productList, state) => {
-  if (state.category === "") return productList;
-  if (state.category === "Men")
-    return [...productList].filter(
-      (product) => product.categoryName === state.category
-    );
-  if (state.category === "Women")
-    return [...productList].filter(
-      (product) => product.categoryName === state.category
-    );
+  switch (state.category) {
+    case "Men":
+      return [...productList].filter(
+        (product) => product.categoryName === state.category
+      );
+    case "Women":
+      return [...productList].filter(
+        (product) => product.categoryName === state.category
+      );
+    default:
+      return productList;
+  }
 };
 
 const productListByRange = (productList, state) =>
