@@ -15,9 +15,7 @@ export const BillCardForCart = () => {
             <h3 className="margin-top-bottom-zero">PRICE DETAILS</h3>
             <hr className="line-separate" />
             <p className="text-card-item flex">
-              <span className="margin-left">
-                price (<span>2</span> items)
-              </span>
+              <span className="margin-left">Price</span>
               <span>{price}</span>
             </p>
             <p className="text-card-item flex">
