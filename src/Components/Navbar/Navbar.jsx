@@ -8,7 +8,11 @@ import { FiLogOut } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/index";
 export const Navbar = () => {
-  const { dispatch } = useFilter();
+  const { dispatch, state } = useFilter();
+  const { cartList } = state;
+  const sum = (acc, curr) => (acc = acc + curr.count);
+  const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
+
   return (
     <nav className="nav-standard flex navigation">
       <div className="hamburger icon-badge">
@@ -48,7 +52,7 @@ export const Navbar = () => {
             <button className="badge-on-icon">
               <RiShoppingCart2Fill className="icon-badge icon-size icon-hover" />
               <div className="badge-on-icon-notify flex-row-center">
-                <span>0</span>
+                <span>{cartCount}</span>
               </div>
             </button>
           </Link>

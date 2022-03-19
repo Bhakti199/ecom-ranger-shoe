@@ -1,3 +1,10 @@
+import {
+  addItemToCart,
+  removeItemFromCart,
+  incrementCartItem,
+  decrementCartItem,
+} from "./CartUtils";
+
 export const filterManagement = (state, action) => {
   switch (action.type) {
     case "SET_CATEGORY":
@@ -77,9 +84,32 @@ export const filterManagement = (state, action) => {
           (brandName) => brandName !== action.payload
         ),
       };
+    case "ADD_TO_CART": {
+      return {
+        ...state,
+        cartList: addItemToCart(action.payload, state.cartList),
+      };
+    }
+
+    case "REMOVE_FROM_CART": {
+      return {
+        ...state,
+        cartList: removeItemFromCart(action.payload, state.cartList),
+      };
+    }
+
+    case "INCREMENT_CART_ITEM":
+      return {
+        ...state,
+        cartList: incrementCartItem(action.payload, state.cartList),
+      };
+    case "DECREMENT_CART_ITEM":
+      return {
+        ...state,
+        cartList: decrementCartItem(action.payload, state.cartList),
+      };
     case "CLEAR_ALL_FILTERS":
       return {
-        category: "",
         sortByRange: 0,
         sortByPrice: "",
         sortByBrand: [],
