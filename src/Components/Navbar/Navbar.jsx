@@ -9,7 +9,8 @@ import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/index";
 export const Navbar = () => {
   const { dispatch, state } = useFilter();
-  const { cartList } = state;
+  const { cartList, wishList } = state;
+
   const sum = (acc, curr) => (acc = acc + curr.count);
   const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
 
@@ -39,12 +40,14 @@ export const Navbar = () => {
           <div>LOGIN / SIGNUP</div>
         </li>
         <li className="nav-standard-list-item min-bold">
-          <button className="badge-on-icon ">
-            <AiFillHeart className="icon-size icon-hover" />
-            <div className="badge-on-icon-notify flex-row-center">
-              <span>0</span>
-            </div>
-          </button>
+          <Link to="/wishlist-page">
+            <button className="badge-on-icon ">
+              <AiFillHeart className="icon-size icon-hover" />
+              <div className="badge-on-icon-notify flex-row-center">
+                <span>{wishList.length}</span>
+              </div>
+            </button>
+          </Link>
         </li>
         <li className="nav-standard-list-item min-bold">
           <Link to="/cart-page">

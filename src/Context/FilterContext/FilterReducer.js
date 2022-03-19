@@ -4,6 +4,7 @@ import {
   incrementCartItem,
   decrementCartItem,
 } from "./CartUtils";
+import { addToWishList, removeFromWishList } from "./WishListUtils";
 
 export const filterManagement = (state, action) => {
   switch (action.type) {
@@ -107,6 +108,16 @@ export const filterManagement = (state, action) => {
       return {
         ...state,
         cartList: decrementCartItem(action.payload, state.cartList),
+      };
+    case "ADD_TO_WISHLIST":
+      return {
+        ...state,
+        wishList: addToWishList(action.payload, state.wishList),
+      };
+    case "REMOVE_FROM_WISHLIST":
+      return {
+        ...state,
+        wishList: removeFromWishList(action.payload, state.wishList),
       };
     case "CLEAR_ALL_FILTERS":
       return {

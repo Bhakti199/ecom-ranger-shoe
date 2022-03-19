@@ -5,8 +5,6 @@ import { AiOutlineMinus } from "react-icons/ai";
 export const BillCardForCart = () => {
   const { state } = useFilter();
   const { cartList } = state;
-  // let price = cartList.length > 0 ? calculatePrice(cartList) : 0;
-  // let discountObj = cartList.length > 0 ? discountPrice(cartList) : 0;
   let price = calculatePrice(cartList) ?? 0;
   let discountObj = discountPrice(cartList) ?? 0;
   return (

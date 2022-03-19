@@ -1,9 +1,10 @@
-import { useProductList } from "../../Context/index";
+import "../../Pages/WishListPage/WishListPage.css";
 import { BsFillStarFill } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { useFilter } from "../../Context/index";
 export const ProductCard = () => {
-  const { showProductList, dispatch } = useFilter();
+  const { showProductList, dispatch, state } = useFilter();
+  const { wishList } = state;
   return (
     <>
       {showProductList.map((item) => (
@@ -12,7 +13,23 @@ export const ProductCard = () => {
             <div className="vertical-card-image">
               <img src={item.img} alt="" className="product-card-img" />
               <button className="wishlist-btn-passive flex-row-center">
-                <AiOutlineHeart />
+                {wishList.some((product) => product._id === item._id) ? (
+                  <BsFillHeartFill
+                    className="wishList-icon"
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE_FROM_WISHLIST",
+                        payload: item,
+                      })
+                    }
+                  />
+                ) : (
+                  <BsHeart
+                    onClick={() =>
+                      dispatch({ type: "ADD_TO_WISHLIST", payload: item })
+                    }
+                  />
+                )}
               </button>
             </div>
             <div className="vertical-card-content">

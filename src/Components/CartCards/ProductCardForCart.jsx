@@ -67,7 +67,17 @@ export const ProductCardForCart = () => {
                 >
                   Remove from cart
                 </button>
-                <button className="secondary-btn-md">Move to wishlist</button>
+                <button
+                  className="secondary-btn-md"
+                  onClick={() =>
+                    dispatch({
+                      type: "ADD_TO_WISHLIST",
+                      payload: item.cartItem,
+                    })
+                  }
+                >
+                  Move to wishlist
+                </button>
               </div>
             </div>
           </div>
