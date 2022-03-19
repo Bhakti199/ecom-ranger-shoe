@@ -25,7 +25,6 @@ export const Navbar = () => {
         </Link>
         <Link
           to="/product-listing"
-          npm
           className="category all-category"
           onClick={() => dispatch({ type: "CLEAR_CATEGORY" })}
         >

@@ -5,7 +5,7 @@ import { AiOutlineMinus } from "react-icons/ai";
 export const BillCardForCart = () => {
   const { state } = useFilter();
   const { cartList } = state;
-  let price = cartList.length > 0 ? calculatePrice(cartList) + 199 : 0;
+  let price = cartList.length > 0 ? calculatePrice(cartList) : 0;
   let discountObj = cartList.length > 0 ? discountPrice(cartList) : 0;
   return (
     <>
@@ -33,7 +33,7 @@ export const BillCardForCart = () => {
             <p className="text-card-item flex">
               <span className="margin-left min-bold">TOTAL AMOUNT</span>
               <span className="min-bold">
-                Rs.{Math.round(discountObj.totalBill)}
+                Rs.{Math.round(discountObj.totalBill + 199)}
               </span>
             </p>
             <hr className="line-separate" />
