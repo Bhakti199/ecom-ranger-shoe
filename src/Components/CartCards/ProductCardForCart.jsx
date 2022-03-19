@@ -2,7 +2,7 @@ import React from "react";
 import { useFilter } from "../../Context/index";
 import "./Card.css";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
-
+import { FaRupeeSign } from "react-icons/fa";
 export const ProductCardForCart = () => {
   const { state, dispatch } = useFilter();
   const { cartList } = state;
@@ -28,10 +28,12 @@ export const ProductCardForCart = () => {
                 </h4>
                 <div className="vertical-card-content-three flex-start-row">
                   <p className="margin-top-bottom-zero current-price">
-                    Rs.{item.cartItem.price}
+                    <FaRupeeSign />
+                    {item.cartItem.price}
                   </p>
                   <p className="margin-top-bottom-zero original-price">
-                    Rs.{item.cartItem.originalPrice}
+                    <FaRupeeSign />
+                    {item.cartItem.originalPrice}
                   </p>
                   <p className="margin-top-bottom-zero discount-text">
                     {item.cartItem.discount}%

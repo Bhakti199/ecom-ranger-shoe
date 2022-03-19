@@ -1,6 +1,7 @@
 import "../../Pages/WishListPage/WishListPage.css";
 import { BsFillStarFill } from "react-icons/bs";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { FaRupeeSign } from "react-icons/fa";
 import { useFilter } from "../../Context/index";
 export const ProductCard = () => {
   const { showProductList, dispatch, state } = useFilter();
@@ -51,13 +52,15 @@ export const ProductCard = () => {
               </h4>
               <div className="vertical-card-content-three flex-start-row">
                 <p className="current-price margin-top-bottom-zero">
-                  Rs.{item.price}
+                  <FaRupeeSign />
+                  {item.price}
                 </p>
                 <p className="original-price margin-top-bottom-zero">
-                  Rs.{item.originalPrice}
+                  <FaRupeeSign />
+                  {item.originalPrice}
                 </p>
                 <p className="discount-text margin-top-bottom-zero">
-                  {item.discount}% Off
+                  {item.discount} % Off
                 </p>
               </div>
             </div>
