@@ -9,6 +9,9 @@
   display: none;
   margin: 0 1rem;
 }
+.hamburgur-menu {
+  display: none;
+}
 .navbar-name {
   margin: 0 2rem 0 1rem;
 }
@@ -30,11 +33,15 @@
 .all-category {
   margin-right: 2rem;
 }
+
 @media only screen and (max-width: 700px) {
   .nav-standard-list-item {
     display: none;
   }
   .hamburger {
     display: inline;
+  }
+  .hamburgur-menu {
+    display: flex;
   }
 }
