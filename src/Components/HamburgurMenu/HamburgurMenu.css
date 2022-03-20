@@ -1,3 +1,6 @@
+:root {
+  --light-color: #eff6ff;
+}
 .hamburgur-menu {
   padding: 1rem;
   position: fixed;
@@ -5,7 +8,7 @@
   top: 3rem;
   left: 0;
   list-style: none;
-  background-color: #eff6ff;
+  background-color: var(--light-color);
   width: 100%;
   display: flex;
   flex-direction: column;
