@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 import { composeFunction, functionList } from "./FilterUtils";
 import { filterManagement } from "./FilterReducer";
 import { useProductList } from "../index";
@@ -16,6 +16,7 @@ const FilterProvider = ({ children }) => {
     includeFastDelivery: "",
     sortByRatings: "",
     cartList: [],
+    wishList: [],
   };
 
   const [state, dispatch] = useReducer(filterManagement, initialValue);

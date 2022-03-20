@@ -1,9 +1,11 @@
-import { useProductList } from "../../Context/index";
+import "../../Pages/WishListPage/WishListPage.css";
 import { BsFillStarFill } from "react-icons/bs";
-import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillHeartFill, BsHeart } from "react-icons/bs";
+import { FaRupeeSign } from "react-icons/fa";
 import { useFilter } from "../../Context/index";
 export const ProductCard = () => {
-  const { showProductList, dispatch } = useFilter();
+  const { showProductList, dispatch, state } = useFilter();
+  const { wishList } = state;
   return (
     <>
       {showProductList.map((item) => (
@@ -12,7 +14,23 @@ export const ProductCard = () => {
             <div className="vertical-card-image">
               <img src={item.img} alt="" className="product-card-img" />
               <button className="wishlist-btn-passive flex-row-center">
-                <AiOutlineHeart />
+                {wishList.some((product) => product._id === item._id) ? (
+                  <BsFillHeartFill
+                    className="wishList-icon"
+                    onClick={() =>
+                      dispatch({
+                        type: "REMOVE_FROM_WISHLIST",
+                        payload: item,
+                      })
+                    }
+                  />
+                ) : (
+                  <BsHeart
+                    onClick={() =>
+                      dispatch({ type: "ADD_TO_WISHLIST", payload: item })
+                    }
+                  />
+                )}
               </button>
             </div>
             <div className="vertical-card-content">
@@ -34,13 +52,15 @@ export const ProductCard = () => {
               </h4>
               <div className="vertical-card-content-three flex-start-row">
                 <p className="current-price margin-top-bottom-zero">
-                  Rs.{item.price}
+                  <FaRupeeSign />
+                  {item.price}
                 </p>
                 <p className="original-price margin-top-bottom-zero">
-                  Rs.{item.originalPrice}
+                  <FaRupeeSign />
+                  {item.originalPrice}
                 </p>
                 <p className="discount-text margin-top-bottom-zero">
-                  {item.discount}% Off
+                  {item.discount} % Off
                 </p>
               </div>
             </div>

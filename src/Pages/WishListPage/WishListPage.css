@@ -1,0 +1,27 @@
+:root {
+  --red-color: #dc2626;
+}
+.landing-page {
+  margin-top: 4.3rem;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.responsive-img {
+  width: 100%;
+  height: auto;
+}
+
+.wishlist-page-title {
+  padding-top: 1rem;
+  color: var(--dark-black);
+  text-align: center;
+}
+.wishlist-page {
+  justify-content: center;
+  gap: 2rem;
+}
+.wishList-icon {
+  color: var(--red-color);
+}
