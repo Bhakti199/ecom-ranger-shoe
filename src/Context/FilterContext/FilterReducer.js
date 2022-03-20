@@ -134,6 +134,7 @@ export const filterManagement = (state, action) => {
       };
     case "CLEAR_ALL_FILTERS":
       return {
+        ...state,
         sortByRange: 0,
         sortByPrice: "",
         sortByBrand: [],

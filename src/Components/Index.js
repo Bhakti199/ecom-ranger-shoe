@@ -4,3 +4,4 @@ export { ProductCard } from "./ProductCard/ProductCard";
 export { Categories } from "./Categories/Categories";
 export { ProductCardForCart } from "./CartCards/ProductCardForCart";
 export { BillCardForCart } from "./CartCards/BillCardForCart";
+export { HamburgurMenuList } from "./HamburgurMenu/HamburgurMenu";
