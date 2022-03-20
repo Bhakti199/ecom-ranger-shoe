@@ -71,12 +71,13 @@ export const ProductCardForCart = () => {
                 </button>
                 <button
                   className="secondary-btn-md"
-                  onClick={() =>
+                  onClick={() => {
                     dispatch({
                       type: "ADD_TO_WISHLIST",
                       payload: item.cartItem,
-                    })
-                  }
+                    });
+                    dispatch({ type: "REMOVE_FROM_CART", payload: item });
+                  }}
                 >
                   Move to wishlist
                 </button>

@@ -4,7 +4,11 @@ import {
   incrementCartItem,
   decrementCartItem,
 } from "./CartUtils";
-import { addToWishList, removeFromWishList } from "./WishListUtils";
+import {
+  addToWishList,
+  removeFromWishList,
+  // addToWishListAndRemoveFromCart,
+} from "./WishListUtils";
 
 export const filterManagement = (state, action) => {
   switch (action.type) {
@@ -108,6 +112,15 @@ export const filterManagement = (state, action) => {
       return {
         ...state,
         cartList: decrementCartItem(action.payload, state.cartList),
+      };
+    case "ADD_TO_WISHLIST_REMOVE_FROM_CART":
+      return {
+        ...state,
+        wishList: addToWishListAndRemoveFromCart(
+          action.payload,
+          state.wishList,
+          state.cartList
+        ),
       };
     case "ADD_TO_WISHLIST":
       return {

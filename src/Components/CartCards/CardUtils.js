@@ -1,10 +1,9 @@
 export const calculatePrice = (cartList) => {
   let priceArray = cartList.map((product) =>
     product.count === 1
-      ? product.cartItem.price
-      : product.cartItem.price * product.count
+      ? product.cartItem.originalPrice
+      : product.cartItem.originalPrice * product.count
   );
-  console.log(priceArray);
   const sum = (num1, num2) => num1 + num2;
   let sumPrice = priceArray.reduce(sum, 0);
   return sumPrice;

@@ -36,7 +36,7 @@ export const FilterSidebar = () => {
             type="range"
             max={10000}
             step={1000}
-            defaultValue={5000}
+            defaultValue={10000}
             className="slider"
             onChange={(event) =>
               dispatch({ type: "FILTER_BY_RANGE", payload: event.target.value })

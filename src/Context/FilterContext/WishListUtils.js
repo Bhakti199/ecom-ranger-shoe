@@ -1,3 +1,4 @@
+import { removeItemFromCart } from "./CartUtils";
 export const addToWishList = (itemToAdd, wishList) => {
   if (wishList.length === 0) return [itemToAdd];
   return wishList.some((item) => item._id === itemToAdd._id)
