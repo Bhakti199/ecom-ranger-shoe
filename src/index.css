@@ -1,5 +1,7 @@
 @import url("/node_modules/mockman-js/dist/style.css");
-
+:root {
+  --black-color: black;
+}
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
@@ -11,4 +13,7 @@ body {
 }
 .justify {
   text-align: justify;
+}
+.wishlist-btn-passive {
+  border: 1px solid var(--black-color);
 }
