@@ -1,8 +1,8 @@
 .landing-page {
   margin-top: 4.3rem;
   width: 100%;
-  height: 100vh;
-  box-sizing: border-box;
+  /* height: 100vh; */
+  /* box-sizing: border-box; */
 }
 
 .responsive-img {
@@ -19,7 +19,7 @@
 
 .deals-of-the-day {
   min-width: 80%;
-  height: 13rem;
+  /* height: 13rem; */
   flex-wrap: wrap;
   gap: 1rem;
 }
