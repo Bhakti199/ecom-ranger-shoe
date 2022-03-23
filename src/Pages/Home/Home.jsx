@@ -1,12 +1,14 @@
 import { Link } from "react-router-dom";
 import "./Home.css";
+import { Footer } from "../../Components/Index";
 export const Home = () => {
   return (
     <div className="landing-page flex-col">
       <div className="landing-page-img">
         <Link to="/product-listing">
           <img
-            src="./assets/main-img.png"
+            src="./assets/1.jpg"
+            // src="./assets/banner.jpg"
             alt="landing-page"
             className="responsive-img"
           />
@@ -49,6 +51,7 @@ export const Home = () => {
           </Link>
         </div>
       </div>
+      <Footer classname="footer-display" />
     </div>
   );
 };
