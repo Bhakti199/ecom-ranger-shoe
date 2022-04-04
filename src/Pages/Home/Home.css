@@ -19,7 +19,6 @@
 
 .deals-of-the-day {
   min-width: 80%;
-  /* height: 13rem; */
   flex-wrap: wrap;
   gap: 1rem;
 }
@@ -35,4 +34,14 @@
   padding-bottom: 2rem;
   color: var(--dark-green);
 }
-/* search */
+
+@media screen and (max-width: 500px) {
+  .deal-img {
+    height: 10rem;
+    width: 15rem;
+  }
+  .deals-of-the-day {
+    margin-bottom: 2rem;
+    gap: 2.5rem;
+  }
+}

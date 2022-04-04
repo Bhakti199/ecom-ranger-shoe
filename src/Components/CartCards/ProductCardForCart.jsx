@@ -2,6 +2,7 @@ import React from "react";
 import { useFilter } from "../../Context/index";
 import "./Card.css";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
+import toast from "react-hot-toast";
 import { FaRupeeSign } from "react-icons/fa";
 export const ProductCardForCart = () => {
   const { state, dispatch } = useFilter();
@@ -63,9 +64,10 @@ export const ProductCardForCart = () => {
               <div className="horizontal-card-btn flex-col-center">
                 <button
                   className="primary-btn-md-two"
-                  onClick={() =>
-                    dispatch({ type: "REMOVE_FROM_CART", payload: item })
-                  }
+                  onClick={() => {
+                    dispatch({ type: "REMOVE_FROM_CART", payload: item }),
+                      toast("removed from cart", { icon: "❌" });
+                  }}
                 >
                   Remove from cart
                 </button>
@@ -77,6 +79,7 @@ export const ProductCardForCart = () => {
                       payload: item.cartItem,
                     });
                     dispatch({ type: "REMOVE_FROM_CART", payload: item });
+                    toast("added to wishlist", { icon: "✔️" });
                   }}
                 >
                   Move to wishlist

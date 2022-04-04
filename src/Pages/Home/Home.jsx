@@ -7,8 +7,7 @@ export const Home = () => {
       <div className="landing-page-img">
         <Link to="/product-listing">
           <img
-            src="./assets/1.jpg"
-            // src="./assets/banner.jpg"
+            src="./assets/imp2.png"
             alt="landing-page"
             className="responsive-img"
           />

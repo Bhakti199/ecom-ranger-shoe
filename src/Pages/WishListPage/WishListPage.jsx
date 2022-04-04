@@ -3,6 +3,7 @@ import "./WishListPage.css";
 import { useFilter } from "../../Context/index";
 import { BsFillStarFill, BsFillHeartFill } from "react-icons/bs";
 import { FaRupeeSign } from "react-icons/fa";
+import toast from "react-hot-toast";
 export const WishListPage = () => {
   const { state, dispatch } = useFilter();
   const { wishList } = state;
@@ -20,12 +21,13 @@ export const WishListPage = () => {
                     <button className="wishlist-btn-passive flex-row-center">
                       <BsFillHeartFill
                         className="wishList-icon"
-                        onClick={() =>
+                        onClick={() => {
                           dispatch({
                             type: "REMOVE_FROM_WISHLIST",
                             payload: item,
-                          })
-                        }
+                          }),
+                            toast("removed from wishlist", { icon: "❌" });
+                        }}
                       />
                     </button>
                   </div>
@@ -65,9 +67,10 @@ export const WishListPage = () => {
                   <div className="card-btn-container">
                     <button
                       className="primary-btn-md-one"
-                      onClick={() =>
-                        dispatch({ type: "ADD_TO_CART", payload: item })
-                      }
+                      onClick={() => {
+                        dispatch({ type: "ADD_TO_CART", payload: item }),
+                          toast("added to cart", { icon: "✔️" });
+                      }}
                     >
                       Add to cart
                     </button>

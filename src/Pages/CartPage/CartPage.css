@@ -5,11 +5,14 @@
 }
 .cart-page {
   margin-left: 0;
-}
-.cart-page {
   justify-content: center;
   gap: 2rem;
 }
 .cart-item-container {
   gap: 2rem;
+}
+@media screen and (max-width: 500px) {
+  .cart-page {
+    flex-wrap: wrap;
+  }
 }
