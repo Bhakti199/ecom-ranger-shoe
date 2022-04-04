@@ -1,5 +1,6 @@
 import "./App.css";
 import { Navbar } from "./Components/Index";
+import { Toaster } from "react-hot-toast";
 import {
   Home,
   ProductListingPage,
@@ -20,6 +21,10 @@ function App() {
         <Route path="/cart-page" element={<CartPage />} />
         <Route path="/wishlist-page" element={<WishListPage />} />
       </Routes>
+      <Toaster
+        position="top-center"
+        toastOptions={{ className: "toast", duration: 2000 }}
+      />
     </div>
   );
 }

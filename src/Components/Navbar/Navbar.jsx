@@ -80,7 +80,12 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      {isHamburgurOpen && <HamburgurMenuList className="hamburgur-menu" />}
+      {isHamburgurOpen && (
+        <HamburgurMenuList
+          className="hamburgur-menu"
+          setIsHamburgurOpen={setIsHamburgurOpen}
+        />
+      )}
     </>
   );
 };

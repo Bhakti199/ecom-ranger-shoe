@@ -7,5 +7,16 @@
 .products {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+@media screen and (max-width: 500px) {
+  .main {
+    padding: 0;
+    margin: 5rem 0 0 0;
+  }
+  .products {
+    gap: 0;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  }
 }

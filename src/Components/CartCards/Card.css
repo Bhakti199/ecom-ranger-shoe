@@ -7,3 +7,11 @@
 .icon-size {
   font-size: 1.5rem;
 }
+@media screen and (max-width: 500px) {
+  .horizontal-card {
+    width: 30rem;
+  }
+  .incre-decre-btn {
+    font-size: 3rem;
+  }
+}

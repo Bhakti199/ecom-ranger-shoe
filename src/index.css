@@ -17,3 +17,8 @@ body {
 .wishlist-btn-passive {
   border: 1px solid var(--black-color);
 }
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 70%;
+  }
+}

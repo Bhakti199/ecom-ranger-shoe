@@ -2,7 +2,7 @@ import "./FilterSidebar.css";
 import { AiFillStar } from "react-icons/ai";
 import { useFilter } from "../../Context/index";
 
-export const FilterSidebar = () => {
+export const FilterSidebar = ({ openFilterBar }) => {
   const { state, dispatch } = useFilter();
 
   const BrandClickHandler = (event) => {
@@ -15,9 +15,10 @@ export const FilterSidebar = () => {
     }
   };
   return (
-    <form className="drawer">
+    <form
+      className={`drawer ${openFilterBar ? "drawer-open" : "drawer-close"}`}
+    >
       <div className="flex drawer-header">
-        <p>FILTER</p>
         <p>
           <button
             className="button"

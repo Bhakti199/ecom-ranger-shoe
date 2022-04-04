@@ -1,12 +1,24 @@
 .drawer {
   position: fixed;
-  top: 5rem;
+  top: 6rem;
   left: 0;
   width: 18rem;
   height: 85vh;
+  z-index: 1;
   overflow-y: scroll;
+  transition: transform 0.3s ease-in-out;
   border-right: 1px solid var(--light-grey);
   padding-bottom: 2rem;
+  background-color: var(--white-color);
+}
+
+.btn-filter {
+  position: fixed;
+  z-index: 1;
+  display: none;
+  background-color: var(--lightest-blue);
+  border: none;
+  padding: 10px 1rem;
 }
 .filter-heading {
   color: var(--dark-black);
@@ -53,4 +65,21 @@
 .button {
   border: none;
   background-color: transparent;
+}
+@media screen and (max-width: 500px) {
+  .drawer-close {
+    transform: translateX(-18rem);
+  }
+  .drawer-open {
+    transform: translateX(0);
+  }
+  .drawer {
+    margin-top: 2rem;
+  }
+  .btn-filter {
+    display: flex;
+  }
+  .products {
+    gap: 10px;
+  }
 }

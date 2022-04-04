@@ -3,6 +3,7 @@ import { BsFillStarFill } from "react-icons/bs";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { FaRupeeSign } from "react-icons/fa";
 import { useFilter } from "../../Context/index";
+import toast from "react-hot-toast";
 export const ProductCard = () => {
   const { showProductList, dispatch, state } = useFilter();
   const { wishList } = state;
@@ -17,18 +18,20 @@ export const ProductCard = () => {
                 {wishList.some((product) => product._id === item._id) ? (
                   <BsFillHeartFill
                     className="wishList-icon"
-                    onClick={() =>
+                    onClick={() => {
                       dispatch({
                         type: "REMOVE_FROM_WISHLIST",
                         payload: item,
-                      })
-                    }
+                      }),
+                        toast("removed from wishlist", { icon: "❌" });
+                    }}
                   />
                 ) : (
                   <BsHeart
-                    onClick={() =>
-                      dispatch({ type: "ADD_TO_WISHLIST", payload: item })
-                    }
+                    onClick={() => {
+                      dispatch({ type: "ADD_TO_WISHLIST", payload: item }),
+                        toast("added to wishlist", { icon: "✔️" });
+                    }}
                   />
                 )}
               </button>
@@ -47,7 +50,7 @@ export const ProductCard = () => {
                 </div>
               </div>
 
-              <h4 className="vertical-card-content-two margin-top-bottom-zero justify">
+              <h4 className="vertical-card-content-two margin-top-bottom-zero justify card-product-detail">
                 {item.productDetail}
               </h4>
               <div className="vertical-card-content-three flex-start-row">
@@ -67,7 +70,10 @@ export const ProductCard = () => {
             <div className="card-btn-container">
               <button
                 className="primary-btn-md-one"
-                onClick={() => dispatch({ type: "ADD_TO_CART", payload: item })}
+                onClick={() => {
+                  dispatch({ type: "ADD_TO_CART", payload: item }),
+                    toast("added to cart", { icon: "✔️" });
+                }}
               >
                 Add to cart
               </button>
