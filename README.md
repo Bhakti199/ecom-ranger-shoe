@@ -9,12 +9,12 @@ live link : https://ranger-shoe-ecom.netlify.app/
 
 - ### Product Listing Page
   - a product listing page where all the products are listed with a section of filters.
-  - A clearfilters btn to clear all filters.
-  - A list of all products with Add to Cart btn & Wishlist icon
+  - A clearfilters button to clear all filters.
+  - A list of all products with Add to Cart button & Wishlist icon
   - Product listing page includes multiple filters like - 
     - **Price Range**: A Slider to show products within a price price range.
     - **Sort Price**: A radio button to sort from low to high & high to low.
-    - **Filter By Category**: A checkbox with various categories according to the theme.
+    - **Filter By Category**: A checkbox with various categories according to brands.
     - **Ratings**: Radio buttons to filter products based on ratings.
  
  
