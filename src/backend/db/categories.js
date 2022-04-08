@@ -12,6 +12,25 @@ export const categories = [
     description:
       "literature in the form of prose, especially novels, that describes imaginary events and people",
   },
+
+  {
+    _id: uuid(),
+    categoryName: "New",
+    description:
+      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Sale",
+    description:
+      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+  },
+  {
+    _id: uuid(),
+    categoryName: "Best Sellers",
+    description:
+      "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
+  },
   {
     _id: uuid(),
     categoryName: "Women",

@@ -1,5 +1,5 @@
 import "./App.css";
-import { Navbar } from "./Components/Index";
+import { Navbar, NavbarMblView, Footer } from "./Components/Index";
 import { Toaster } from "react-hot-toast";
 import {
   Home,
@@ -12,8 +12,14 @@ import { Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <Navbar />
+    <>
+      <div className="desktop-navbar">
+        <Navbar />
+      </div>
+      <div className="mbl-navbar">
+        <NavbarMblView />
+      </div>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mockman" element={<MockMan />} />
@@ -21,11 +27,13 @@ function App() {
         <Route path="/cart-page" element={<CartPage />} />
         <Route path="/wishlist-page" element={<WishListPage />} />
       </Routes>
+
       <Toaster
         position="top-center"
         toastOptions={{ className: "toast", duration: 2000 }}
       />
-    </div>
+      <Footer />
+    </>
   );
 }
 

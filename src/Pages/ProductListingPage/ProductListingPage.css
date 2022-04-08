@@ -2,12 +2,11 @@
   padding: 1rem;
   margin: 5rem 1rem 1rem 18.7rem;
   height: 100%;
-  background-color: var(--blue-bg-color);
 }
 .products {
   display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
 }
 
 @media screen and (max-width: 500px) {

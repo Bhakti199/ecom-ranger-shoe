@@ -3,41 +3,30 @@
   --text-footer-color: #9ca3af;
 }
 .footer {
-  margin-top: 5rem;
-  padding: 1rem 0;
-  background-color: var(--black-footer-color);
-  color: var(--text-footer-color);
-}
-.flex-col-footer {
+  padding: 5rem 0;
+  background-color: #93b48b;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 1.5rem;
+  color: var(--white-color);
 }
-.heart-icon {
-  color: var(--medium-blue);
+.footer-title {
+  font-size: 2rem;
+  font-weight: 800;
 }
-.footer-icon {
-  font-size: 1.5rem;
-  color: var(--text-footer-color);
+.footer-msg {
+  max-width: 40%;
+  text-align: center;
+  letter-spacing: 1px;
+  line-height: 1.7rem;
 }
-.footer-icon:hover {
-  color: var(--medium-blue);
-}
-.footer-icons-container {
+.footer-icons {
   display: flex;
-  gap: 15px;
+  gap: 1.4rem;
 }
-.copyright-text {
-  display: flex;
-  gap: 10px;
-}
-.footer-made-with-text {
-  font-size: 1.3rem;
-  font-weight: lighter;
-  gap: 5px;
-}
-.ranger-name-footer {
-  font-family: "Great Vibes", cursive;
-  color: var(--medium-blue);
+@media screen and (max-width: 700px) {
+  .footer-msg {
+    max-width: 70%;
+  }
 }
