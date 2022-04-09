@@ -1,10 +1,6 @@
-:root {
-  --black-footer-color: #1c1917;
-  --text-footer-color: #9ca3af;
-}
 .footer {
   padding: 5rem 0;
-  background-color: #93b48b;
+  background-color: var(--sea-green-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,8 +21,19 @@
   display: flex;
   gap: 1.4rem;
 }
+.footer-terms-conditions {
+  display: flex;
+  gap: 1rem;
+}
+.footer-copyright-text {
+  display: flex;
+  align-items: center;
+}
 @media screen and (max-width: 700px) {
   .footer-msg {
     max-width: 70%;
+  }
+  .footer-terms-conditions {
+    font-size: 10px;
   }
 }

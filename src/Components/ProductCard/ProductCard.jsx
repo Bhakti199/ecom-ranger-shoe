@@ -1,4 +1,3 @@
-// import "../../Pages/WishListPage/WishListPage.css";
 import "./ProductCard.css";
 import { BsFillStarFill, BsCart2 } from "react-icons/bs";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";

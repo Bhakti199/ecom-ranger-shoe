@@ -11,8 +11,8 @@
   padding: 10px;
 }
 .category:hover {
-  color: #0d9488;
-  border-bottom: 3px solid #0d9488;
+  color: var(--dark-green);
+  border-bottom: 3px solid var(--dark-green);
   cursor: pointer;
 }
 @media screen and (max-width: 500px) {

@@ -2,115 +2,10 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { v4 as uuid } from "uuid";
+
 import "./Home.css";
-
+import { sliderData, settings, brands } from "./HomeUtils";
 export const Home = () => {
-  const brands = [
-    {
-      id: uuid(),
-      img: "./assets/adidaslogo.jpg",
-    },
-    {
-      id: uuid(),
-      img: "./assets/hrx.png",
-    },
-    {
-      id: uuid(),
-      img: "./assets/nikelogo.png",
-    },
-    {
-      id: uuid(),
-      img: "./assets/reebok.png",
-    },
-    {
-      id: uuid(),
-      img: "./assets/pumalogo.png",
-    },
-  ];
-
-  const sliderData = [
-    {
-      id: uuid(),
-      img: "./assets/banner-v-4.webp",
-    },
-
-    {
-      id: uuid(),
-      img: "./assets/banner-v-2.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-3.webp",
-    },
-
-    {
-      id: uuid(),
-      img: "./assets/banner-v-5.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-6.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-7.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-8.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-1.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-9.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-10.webp",
-    },
-    {
-      id: uuid(),
-      img: "./assets/banner-v-11.webp",
-    },
-  ];
-
-  const settings = {
-    className: "center must-have-row-container",
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 3,
-    swipeToSlide: true,
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 3,
-          slidesToScroll: 3,
-          infinite: true,
-          dots: true,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 480,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
   return (
     <div className="landing-page-home flex-col">
       <div className="video-container flex">
@@ -138,16 +33,14 @@ export const Home = () => {
         <div className="model-one">
           <img
             src="./assets/sq-5.jpg"
-            alt=""
-            srcset=""
+            alt="banner"
             className="responsive-img-model model-hover"
           />
         </div>
         <div className="model-one ">
           <img
             src="./assets/sq-1.jpg"
-            alt=""
-            srcset=""
+            alt="banner"
             className="responsive-img-model model-hover"
           />
         </div>
@@ -155,8 +48,7 @@ export const Home = () => {
           <div className="model-two ">
             <img
               src="./assets/banner-v-5.webp"
-              alt=""
-              srcset=""
+              alt="banner"
               className="responsive-img-model model-hover"
             />
           </div>
@@ -164,15 +56,13 @@ export const Home = () => {
           <div className="model-two">
             <img
               src="./assets/banner-v-7.webp"
-              alt=""
-              srcset=""
+              alt="banner"
               className="responsive-img-model model-hover"
             />
-            <h1 className="model-hover-text">Sale</h1>
           </div>
         </div>
       </div>
-      <h1 className="featured-brands">Featured Brands</h1>
+      <div className="featured-brands">Featured Brands</div>
       <div className="brand-row-container">
         {brands.map((brand) => (
           <div className="brand" key={brand.id}>
@@ -181,21 +71,22 @@ export const Home = () => {
         ))}
       </div>
       <div className="must-have">
-        <div className="must-have-title">Must Have</div>
+        <div className="must-have-title">Must Haves</div>
         <div className="must-have-sub-title">
           Some of our favourite picks this week.
         </div>
         <div className="must-have-container">
           <Slider {...settings}>
-            {sliderData.map((brand) => (
-              <div className="must-have-card-container">
-                <div className="must-have-card" key={brand.id}>
+            {sliderData.map((slide) => (
+              <div className="must-have-card-container" key={slide.id}>
+                <div className="must-have-card">
                   <img
                     className="responsive-img-model img-slider"
-                    src={brand.img}
-                    alt="brand img"
+                    src={slide.img}
+                    alt="slide img"
                   />
                 </div>
+                <span className="must-have-details">{slide.productDetail}</span>
                 <div className="slider-text">
                   <button className="slider-button">Shop Now</button>
                 </div>

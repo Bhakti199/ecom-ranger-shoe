@@ -2,24 +2,20 @@ import React from "react";
 import "../../Components/Navbar/Navbar.css";
 import "../../Components/NavbarMblView/NavbarMblView.css";
 import { Categories } from "../../Components/Index";
-
 import { BsHandbag, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
-
 import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/index";
-import { useState } from "react";
 
 export const NavbarMblView = () => {
   const { dispatch, state } = useFilter();
   const { cartList, wishList } = state;
-  const [isHamburgurOpen, setIsHamburgurOpen] = useState(false);
   const sum = (acc, curr) => (acc = acc + curr.count);
   const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
 
   return (
     <div className="navabar-mbl-view">
       <div className="free-shipping-msg">
-        FREE SHIPPING FOR ORDERS Rs.2000+. GIFTED RANGER BAGS WITH PURCHASES
+        FREE SHIPPING FOR ORDERS Rs.2000+. GIFTED RANGER COUPONS WITH PURCHASES
         Rs.2500+.
       </div>
 

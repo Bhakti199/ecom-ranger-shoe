@@ -1,6 +1,6 @@
 .vertical-card-product {
   position: relative;
-  border: 1px solid #e2e8f0;
+  border: 1px solid var(--light-grey);
   height: 19rem;
   width: 12rem;
 }
@@ -28,7 +28,7 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: var(--darker-grey);
+  color: var(--light-grey);
 }
 .add-to-cart-btn {
   opacity: 0;
@@ -37,11 +37,11 @@
   right: 1rem;
   padding: 0.9rem 1rem;
   border-radius: 50%;
-  background-color: #14b8a6;
+  background-color: var(--cta-green);
   transition: 0.3s ease-in-out;
 }
 .cart-icon {
-  color: white;
+  color: var(--white-color);
 }
 div.vertical-card-product:hover .add-to-cart-btn {
   opacity: 1;

@@ -1,7 +1,6 @@
 .navabar-mbl-view {
   display: flex;
   flex-direction: column;
-  /* gap: 0.8rem; */
   width: 100%;
 }
 .nav-ecom-mbl-view {
@@ -27,5 +26,8 @@
   }
   .brand-search-input {
     width: 22rem;
+  }
+  .free-shipping-msg {
+    font-size: 8px;
   }
 }

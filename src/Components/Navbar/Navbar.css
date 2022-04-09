@@ -1,6 +1,6 @@
 .free-shipping-msg {
-  background-color: #93b48b;
-  color: white;
+  background-color: var(--sea-green-color);
+  color: var(--white-color);
   text-align: center;
   font-weight: 200;
   padding: 6px 0;
@@ -21,7 +21,7 @@
 .brand-search-container {
   display: flex;
   align-items: center;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--black-color);
   margin: 0 1rem 0 3rem;
   padding-bottom: 3px;
 }
@@ -36,8 +36,8 @@ input::placeholder {
   margin: 0 1rem;
 }
 .logo-ecom {
-  width: 1.8rem;
-  height: 1.8rem;
+  width: 2rem;
+  height: 2rem;
   margin-right: 4rem;
 }
 .hamburgur-menu {
@@ -56,12 +56,3 @@ input::placeholder {
 .category-display-two {
   display: none;
 }
-
-/* code for shop now */
-/* <Link
-          to="/"
-          className="category all-category"
-          onClick={() => dispatch({ type: "CLEAR_CATEGORY" })}
-        >
-          All
-        </Link> */

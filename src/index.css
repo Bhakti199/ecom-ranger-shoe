@@ -2,10 +2,17 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap");
 :root {
   --black-color: black;
-  --bg-color: #f0fdf4;
-  --primary-green: #14532d;
-  --green-medium-500: #22c55e;
-  --off-white: #e2e8f0;
+  --dark-green: #4b5563;
+  --white-color: white;
+  --light-grey: #e2e8f0;
+  --cream-mint: #f7fff6;
+  --mint-color: #bcebcb;
+  --banner-mint: #b5d3c6;
+  --green-apple-color: #87d68d;
+  --sea-green-color: #93b48b;
+  --roman-silver-color: #8491a3;
+  --cta-green: #14b8a6;
+  --dark-green: #0d9466;
 }
 body {
   margin: 0;
