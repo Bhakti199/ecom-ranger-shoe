@@ -3,3 +3,18 @@ div .toast {
   background-color: var(--lightest-blue);
   border-bottom: 7px solid var(--medium-blue);
 }
+.mbl-navbar {
+  display: none;
+}
+.desktop-navbar {
+  display: block;
+}
+
+@media screen and (max-width: 1170px) {
+  .mbl-navbar {
+    display: flex;
+  }
+  .desktop-navbar {
+    display: none;
+  }
+}

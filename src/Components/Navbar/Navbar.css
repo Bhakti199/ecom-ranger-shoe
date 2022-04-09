@@ -1,13 +1,44 @@
-.navigation {
-  position: fixed;
-  top: 0;
-  right: 0;
-  left: 0;
-  z-index: 1;
+.free-shipping-msg {
+  background-color: var(--sea-green-color);
+  color: var(--white-color);
+  text-align: center;
+  font-weight: 200;
+  padding: 6px 0;
+  letter-spacing: 1px;
+}
+.navbar-ecom {
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.brand-search-input {
+  border: none;
+  outline: none;
+  width: 17rem;
+  font-size: 1.1rem;
+}
+.brand-search-container {
+  display: flex;
+  align-items: center;
+  border-bottom: 2px solid var(--black-color);
+  margin: 0 1rem 0 3rem;
+  padding-bottom: 3px;
+}
+input::placeholder {
+  font-size: 1.1rem;
+}
+.navbar-second-part {
+  gap: 1.5rem;
 }
 .hamburger {
   display: none;
   margin: 0 1rem;
+}
+.logo-ecom {
+  width: 2rem;
+  height: 2rem;
+  margin-right: 4rem;
 }
 .hamburgur-menu {
   display: none;
@@ -19,29 +50,9 @@
 .icon-size {
   font-size: 2rem;
 }
-
-.icon-hover:hover {
-  color: var(--medium-blue);
+.category-display-one {
+  display: block;
 }
-.category {
-  color: black;
-}
-.category:hover {
-  color: var(--medium-blue);
-  cursor: pointer;
-}
-.all-category {
-  margin-right: 2rem;
-}
-
-@media only screen and (max-width: 700px) {
-  .nav-standard-list-item {
-    display: none;
-  }
-  .hamburger {
-    display: inline;
-  }
-  .hamburgur-menu {
-    display: flex;
-  }
+.category-display-two {
+  display: none;
 }

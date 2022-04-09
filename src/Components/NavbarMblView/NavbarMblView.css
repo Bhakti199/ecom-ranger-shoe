@@ -1,0 +1,33 @@
+.navabar-mbl-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.nav-ecom-mbl-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+.navbar-second-part {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1170px) {
+  .brand-search-container {
+    justify-content: space-between;
+    margin: 1rem 2rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .brand-search-container {
+    margin: 1rem;
+    justify-content: space-between;
+  }
+  .brand-search-input {
+    width: 22rem;
+  }
+  .free-shipping-msg {
+    font-size: 8px;
+  }
+}

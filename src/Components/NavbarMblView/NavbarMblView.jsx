@@ -1,61 +1,34 @@
 import React from "react";
-import "./Navbar.css";
+import "../../Components/Navbar/Navbar.css";
+import "../../Components/NavbarMblView/NavbarMblView.css";
 import { Categories } from "../../Components/Index";
-import { GiHamburgerMenu } from "react-icons/gi";
-
 import { BsHandbag, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
-
-import { MdCancel } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/index";
-import { useState } from "react";
-import { HamburgurMenuList } from "../../Components/Index";
-export const Navbar = () => {
+
+export const NavbarMblView = () => {
   const { dispatch, state } = useFilter();
   const { cartList, wishList } = state;
-  const [isHamburgurOpen, setIsHamburgurOpen] = useState(false);
   const sum = (acc, curr) => (acc = acc + curr.count);
   const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
 
   return (
-    <>
+    <div className="navabar-mbl-view">
       <div className="free-shipping-msg">
         FREE SHIPPING FOR ORDERS Rs.2000+. GIFTED RANGER COUPONS WITH PURCHASES
         Rs.2500+.
       </div>
-      <nav className="navbar-ecom flex ">
-        <div className="hamburger icon-badge">
-          {isHamburgurOpen ? (
-            <MdCancel
-              className="icon-hover"
-              onClick={() => setIsHamburgurOpen((prevStatus) => !prevStatus)}
-            />
-          ) : (
-            <GiHamburgerMenu
-              className="icon-hover"
-              onClick={() => setIsHamburgurOpen((prevStatus) => !prevStatus)}
-            />
-          )}
-        </div>
 
+      <nav
+        className="nav-ecom-mbl-view
+      flex nav-ecom-mbl-view"
+      >
         <div className="flex list">
           <Link to="/" className="ranger-logo">
             <img src="./assets/R.png" alt="logo" className="logo-ecom" />
           </Link>
         </div>
 
-        <div className="category-display-one">
-          <Categories />
-        </div>
-
-        <div className="brand-search-container">
-          <input
-            type="text"
-            className="brand-search-input"
-            placeholder="Search for Items"
-          />
-          <BsSearch size={21} />
-        </div>
         <ul className="navbar-second-part flex list">
           <li className="">
             <div>
@@ -88,9 +61,18 @@ export const Navbar = () => {
           </li>
         </ul>
       </nav>
-      <div className="category-display-two">
+
+      <div className="category-desktop-view">
         <Categories />
       </div>
-    </>
+      <div className="brand-search-container">
+        <input
+          type="text"
+          className="brand-search-input"
+          placeholder="Search for Items"
+        />
+        <BsSearch size={21} />
+      </div>
+    </div>
   );
 };

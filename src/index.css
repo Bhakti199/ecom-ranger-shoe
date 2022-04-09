@@ -1,11 +1,24 @@
 @import url("/node_modules/mockman-js/dist/style.css");
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap");
 :root {
   --black-color: black;
+  --dark-green: #4b5563;
+  --white-color: white;
+  --light-grey: #e2e8f0;
+  --cream-mint: #f7fff6;
+  --mint-color: #bcebcb;
+  --banner-mint: #b5d3c6;
+  --green-apple-color: #87d68d;
+  --sea-green-color: #93b48b;
+  --roman-silver-color: #8491a3;
+  --cta-green: #14b8a6;
+  --dark-green: #0d9466;
 }
 body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-family: "Raleway", sans-serif;
 }
 .button {
   border: none;
@@ -19,6 +32,9 @@ body {
 }
 @media screen and (max-width: 500px) {
   html {
-    font-size: 70%;
+    font-size: 90%;
+  }
+  .icon-size {
+    font-size: 3.5rem;
   }
 }

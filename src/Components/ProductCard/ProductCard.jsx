@@ -1,5 +1,5 @@
-import "../../Pages/WishListPage/WishListPage.css";
-import { BsFillStarFill } from "react-icons/bs";
+import "./ProductCard.css";
+import { BsFillStarFill, BsCart2 } from "react-icons/bs";
 import { BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { FaRupeeSign } from "react-icons/fa";
 import { useFilter } from "../../Context/index";
@@ -11,12 +11,13 @@ export const ProductCard = () => {
     <>
       {showProductList.map((item) => (
         <section className="flex-row-center" key={item._id}>
-          <div className="vertical-card flex-col-center">
-            <div className="vertical-card-image">
-              <img src={item.img} alt="" className="product-card-img" />
-              <button className="wishlist-btn-passive flex-row-center">
+          <div className="vertical-card-product">
+            <div className="vertical-card-img-container">
+              <img src={item.img} alt="" className="responsive-img-card" />
+              <span className="wishlist flex-row-center">
                 {wishList.some((product) => product._id === item._id) ? (
                   <BsFillHeartFill
+                    size={21}
                     className="wishList-icon"
                     onClick={() => {
                       dispatch({
@@ -28,55 +29,28 @@ export const ProductCard = () => {
                   />
                 ) : (
                   <BsHeart
+                    size={21}
                     onClick={() => {
                       dispatch({ type: "ADD_TO_WISHLIST", payload: item }),
                         toast("added to wishlist", { icon: "✔️" });
                     }}
                   />
                 )}
-              </button>
+              </span>
             </div>
-            <div className="vertical-card-content">
-              <div className="flex">
-                <h3 className="vertical-card-content-one margin-top-bottom-zero margin-auto">
-                  {item.productBrand}
-                  {item.id}
-                </h3>
-                <div className="numbered-rating flex-row-center">
-                  <span className="numbered-rating-item">{item.ratings}</span>
-                  <span className="numbered-rating-item">
-                    <BsFillStarFill />
-                  </span>
-                </div>
-              </div>
-
-              <h4 className="vertical-card-content-two margin-top-bottom-zero justify card-product-detail">
-                {item.productDetail}
-              </h4>
-              <div className="vertical-card-content-three flex-start-row">
-                <p className="current-price margin-top-bottom-zero">
-                  <FaRupeeSign />
-                  {item.price}
-                </p>
-                <p className="original-price margin-top-bottom-zero">
-                  <FaRupeeSign />
-                  {item.originalPrice}
-                </p>
-                <p className="discount-text margin-top-bottom-zero">
-                  {item.discount} % Off
+            <div className="vertical-card-text">
+              <p className="margin-top-bottom-zero product-brand-name">
+                {item.productBrand}
+                {item.id}
+              </p>
+              <div className="">
+                <p className="margin-top-bottom-zero">
+                  Rs.{item.price} ({item.ratings})
                 </p>
               </div>
             </div>
-            <div className="card-btn-container">
-              <button
-                className="primary-btn-md-one"
-                onClick={() => {
-                  dispatch({ type: "ADD_TO_CART", payload: item }),
-                    toast("added to cart", { icon: "✔️" });
-                }}
-              >
-                Add to cart
-              </button>
+            <div className="add-to-cart-btn">
+              <BsCart2 size={17} fontWeight={100} className="cart-icon" />
             </div>
           </div>
         </section>

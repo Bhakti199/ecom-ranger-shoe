@@ -1,56 +1,100 @@
 import { Link } from "react-router-dom";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 import "./Home.css";
-import { Footer } from "../../Components/Index";
+import { sliderData, settings, brands } from "./HomeUtils";
 export const Home = () => {
   return (
-    <div className="landing-page flex-col">
-      <div className="landing-page-img">
-        <Link to="/product-listing">
-          <img
-            src="./assets/imp2.png"
-            alt="landing-page"
-            className="responsive-img"
+    <div className="landing-page-home flex-col">
+      <div className="video-container flex">
+        <video autoPlay loop muted className="landing-video">
+          <source
+            src="https://res.cloudinary.com/furnhouse/video/upload/eo_037,so_017/v1649241151/e-commerce/videoplayback_k1c6pn.mp4"
+            type="video/mp4"
           />
-        </Link>
-      </div>
-
-      <h1 className="deal-heading">Deals of the day</h1>
-
-      <div className="deals-of-the-day flex-row-center">
-        <div className="deal-img">
-          <Link to="/product-listing">
-            <img
-              className="responsive-img"
-              src="./assets/deal-1.jpg"
-              alt="product"
-            />
-            <p className="deal-text">upto 20% off</p>
-          </Link>
-        </div>
-
-        <div className="deal-img">
-          <Link to="/product-listing">
-            <img
-              className="responsive-img"
-              src="./assets/deal-2.jpg"
-              alt="product"
-            />
-            <p className="deal-text">upto 33% off</p>
-          </Link>
-        </div>
-
-        <div className="deal-img">
-          <Link to="/product-listing">
-            <img
-              className="responsive-img"
-              src="./assets/deal-3.jpg"
-              alt="product"
-            />
-            <p className="deal-text">upto 50% off</p>
-          </Link>
+        </video>
+        <div className="video-text">
+          <div className="video-title">Run an extra mile</div>
+          <div className="video-sub-title">
+            Ranger Shoe is a destination for style seekers.
+          </div>
+          <button className="cta-button">Shop Now</button>
         </div>
       </div>
-      <Footer classname="footer-display" />
+
+      <div className="main-text">
+        Curators of Ranger Shoe and associated brands designed. Ranger Shoe is a
+        destination for style seekers. Located in India's fashion land Navi
+        Mumbai.
+      </div>
+      <div className="banner-models">
+        <div className="model-one">
+          <img
+            src="./assets/sq-5.jpg"
+            alt="banner"
+            className="responsive-img-model model-hover"
+          />
+        </div>
+        <div className="model-one ">
+          <img
+            src="./assets/sq-1.jpg"
+            alt="banner"
+            className="responsive-img-model model-hover"
+          />
+        </div>
+        <div className="banner-model-section-two">
+          <div className="model-two ">
+            <img
+              src="./assets/banner-v-5.webp"
+              alt="banner"
+              className="responsive-img-model model-hover"
+            />
+          </div>
+
+          <div className="model-two">
+            <img
+              src="./assets/banner-v-7.webp"
+              alt="banner"
+              className="responsive-img-model model-hover"
+            />
+          </div>
+        </div>
+      </div>
+      <div className="featured-brands">Featured Brands</div>
+      <div className="brand-row-container">
+        {brands.map((brand) => (
+          <div className="brand" key={brand.id}>
+            <img className="responsive-img" src={brand.img} alt="brand img" />
+          </div>
+        ))}
+      </div>
+      <div className="must-have">
+        <div className="must-have-title">Must Haves</div>
+        <div className="must-have-sub-title">
+          Some of our favourite picks this week.
+        </div>
+        <div className="must-have-container">
+          <Slider {...settings}>
+            {sliderData.map((slide) => (
+              <div className="must-have-card-container" key={slide.id}>
+                <div className="must-have-card">
+                  <img
+                    className="responsive-img-model img-slider"
+                    src={slide.img}
+                    alt="slide img"
+                  />
+                </div>
+                <span className="must-have-details">{slide.productDetail}</span>
+                <div className="slider-text">
+                  <button className="slider-button">Shop Now</button>
+                </div>
+              </div>
+            ))}
+          </Slider>
+        </div>
+      </div>
     </div>
   );
 };
