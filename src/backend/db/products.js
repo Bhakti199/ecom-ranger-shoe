@@ -8,9 +8,13 @@ import { v4 as uuid } from "uuid";
 export const products = [
   {
     _id: uuid(),
-    img: "./assets/m1.jpg",
+    id: 1,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product9_a5aiu9Amd.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654108981",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model9_Oh9hTgpxE8.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654103792",
     productBrand: "Puma",
-    categoryName: "Men",
+    categoryName: "Women, Best Sellers, New Arrivals",
     productDetail: "Fire run running shoes for men",
     originalPrice: 4000,
     price: 3000,
@@ -19,13 +23,18 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 2,
+    color: "cream",
   },
   {
     _id: uuid(),
-    img: "./assets/m2.jpg",
+    id: 2,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product14_Vu8l9Wohps.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654105281",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model14_-yrmv2MQW.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654100181",
     productBrand: "Puma",
-    categoryName: "Men",
-    productDetail: "Hustle V2 Running Shoes For Men  ",
+    categoryName: "Men, New Arrivals, BestSellers",
+    productDetail: "Hustle V2 Running Shoes For Men ",
     originalPrice: 5000,
     price: 4000,
     discount: 10,
@@ -33,12 +42,17 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     productCount: 3,
+    color: "red",
   },
   {
     _id: uuid(),
-    img: "./assets/m3.jpg",
+    id: 3,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product8_BWxzTg_JU.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654108557",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model8_a5wIhgo5j.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654103358",
     productBrand: "Puma",
-    categoryName: "Men",
+    categoryName: "Women,  Best Sellers",
     productDetail: "Supertec Running Shoes For Men",
     originalPrice: 6900,
     price: 5000,
@@ -47,10 +61,15 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 4,
+    color: "white",
   },
   {
     _id: uuid(),
-    img: "./assets/m4.jpg",
+    id: 4,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product15_nprsfA9MD.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654105742",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model15_zVu5Yr6Xc.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654100723",
     productBrand: "Puma",
     categoryName: "Men",
     productDetail: "Ferrari X-Ray Speed Running Shoes For Men",
@@ -61,12 +80,17 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     productCount: 7,
+    color: "cream",
   },
   {
     _id: uuid(),
-    img: "./assets/m5.jpg",
+    id: 5,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product7_Dm-X_4cOVf.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654108170",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model7_RymKAWIWv4.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654103114",
     productBrand: "Puma",
-    categoryName: "Men",
+    categoryName: "Women, New Arrivals",
     productDetail: "Troy MU Running Shoes For Men (Grey)",
     originalPrice: 4000,
     price: 3300,
@@ -75,12 +99,17 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 7,
+    color: "black",
   },
   {
     _id: uuid(),
-    img: "./assets/m6.jpg",
+    id: 6,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product6_e6Js87jVE.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654107695",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model6_ebTXinyV3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654102839",
     productBrand: "Adidas",
-    categoryName: "Men",
+    categoryName: "Women, Best Sellers",
     productDetail: "Runesy M Running Shoes For Men  (Grey) ",
     originalPrice: 1000,
     price: 599,
@@ -89,12 +118,21 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     productCount: 8,
+    color: "black",
+    gender: "women",
+    new: false,
+    sale: false,
+    bestSeller: true,
   },
   {
     _id: uuid(),
-    img: "./assets/m7.jpg",
+    id: 7,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product11_JezrmRn36.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654104290",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model11_nDwJZAnp0.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654098835",
     productBrand: "Adidas",
-    categoryName: "Men",
+    categoryName: "Men, Best Sellers,New Arrivals",
     productDetail: "Pictoris M Running Shoes For Men  (Black) ",
     originalPrice: 2000,
     price: 1800,
@@ -103,12 +141,17 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 2,
+    color: "grey",
   },
   {
     _id: uuid(),
-    img: "./assets/m8.jpg",
+    id: 8,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/white1p_bw7PdwBBd.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654109997",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/white1m_BLSCmChI6.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654109552",
     productBrand: "Adidas",
-    categoryName: "Men",
+    categoryName: "Women",
     productDetail: "Adifloss M Running Shoes For Men  (Blue) ",
     originalPrice: 5000,
     price: 4500,
@@ -117,12 +160,17 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     productCount: 4,
+    color: "grey",
   },
   {
     _id: uuid(),
-    img: "./assets/m9.jpg",
+    id: 9,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product12_HgPaHPExp.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654104722",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model12_KCTKL4BRT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654099102",
     productBrand: "Adidas",
-    categoryName: "Men",
+    categoryName: "Men, Best Sellers,New Arrivals",
     productDetail: "Quickflow M Running Shoes For Men  (Blue)",
     originalPrice: 9000,
     price: 8000,
@@ -131,12 +179,17 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     productCount: 5,
+    color: "cream",
   },
   {
     _id: uuid(),
-    img: "./assets/m10.jpg",
+    id: 10,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product2_4xU2E2QC2.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654106287",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model2_FH5-moRZL.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654101183",
     productBrand: "Nike",
-    categoryName: "Men",
+    categoryName: "Women",
     productDetail: "Revolution 5 Running Shoes For Men  (Black) ",
     originalPrice: 10000,
     price: 9000,
@@ -145,12 +198,17 @@ export const products = [
     inStock: false,
     fastDelivery: false,
     productCount: 1,
+    color: "white",
   },
   {
     _id: uuid(),
-    img: "./assets/w1.jpg",
+    id: 11,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product4_bvedBlWM8.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654106757",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model4_dsg46TsRd3.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654102144",
     productBrand: "Nike",
-    categoryName: "Women",
+    categoryName: "Women,Best Sellers,New Arrivals",
     productDetail: "Revolution 6 Next Nature Road s Running Shoes For Men  ",
     originalPrice: 9000,
     price: 8400,
@@ -159,12 +217,17 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 3,
+    color: "white",
   },
   {
     _id: uuid(),
-    img: "./assets/w2.jpg",
+    id: 12,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product5_tEftHcA3C.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654107219",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model5_OL6wdupJN.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654102398",
     productBrand: "Nike",
-    categoryName: "Women",
+    categoryName: "Women, Best Sellers",
     productDetail: "Downshifter 11 Road s Running Shoes For Men ",
     originalPrice: 3000,
     price: 2000,
@@ -173,10 +236,34 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     productCount: 6,
+    color: "cream",
   },
   {
     _id: uuid(),
-    img: "./assets/w3.jpg",
+    id: 20,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct5_GrcZ8VK9n.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658843653",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel5_SV9aBsGjy.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658840159",
+    productBrand: "Hrx",
+    categoryName: "Kids, Best Sellers",
+    productDetail: "Revolution 6 Next Nature Road Running Shoes",
+    originalPrice: 11000,
+    price: 10000,
+    discount: 50,
+    ratings: 3.1,
+    inStock: false,
+    fastDelivery: true,
+    productCount: 4,
+    color: "black",
+  },
+  {
+    _id: uuid(),
+    id: 13,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product3_1eyWEEfNV.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654106451",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model3_BGLowr-1A.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654101416",
     productBrand: "Nike",
     categoryName: "Women",
     productDetail: "Revolution 4 Running Shoes For Men  (Black)",
@@ -187,12 +274,36 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 9,
+    color: "cream",
   },
   {
     _id: uuid(),
-    img: "./assets/w4.jpg",
+    id: 17,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct2_fxuz6c2DE.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658841296",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel2_N4gDb1VzE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839245",
+    productBrand: "Hrx",
+    categoryName: "Kids,Best Sellers",
+    productDetail: "Revolution 6 Next Nature Road Running Shoes",
+    originalPrice: 11000,
+    price: 10000,
+    discount: 50,
+    ratings: 3.1,
+    inStock: false,
+    fastDelivery: true,
+    productCount: 4,
+    color: "black",
+  },
+  {
+    _id: uuid(),
+    id: 14,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product10_PGatAs1PWZ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654103924",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model10_zLI7qhYYr.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654098754",
     productBrand: "Nike",
-    categoryName: "Women",
+    categoryName: "Men, Best Sellers,New Arrivals",
     productDetail: "Revolution 6 Next Nature Road Running Shoes",
     originalPrice: 5000,
     price: 4000,
@@ -201,12 +312,17 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     productCount: 2,
+    color: "black",
   },
   {
     _id: uuid(),
-    img: "./assets/w5.jpg",
+    id: 15,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/product13_rDl67tOaS.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649654105016",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/model13_HGJekji6M.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649654099706",
     productBrand: "Reebok",
-    categoryName: "Women",
+    categoryName: "Men, Best Sellers",
     productDetail: "Downshifter 11 Road s Running Shoes For Men ",
     originalPrice: 10000,
     price: 9000,
@@ -215,12 +331,18 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     productCount: 1,
+    color: "white",
   },
+
   {
     _id: uuid(),
-    img: "./assets/w6.jpg",
+    id: 16,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct4_pUPTa3hH3.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658843055",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel4_yuyL9x3QD.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839554",
     productBrand: "Reebok",
-    categoryName: "Women",
+    categoryName: "Kids,New Arrivals",
     productDetail: "Revolution 4 Running Shoes For Men  (Black)",
     originalPrice: 10000,
     price: 9000,
@@ -229,26 +351,18 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 8,
+    color: "purple",
   },
+
   {
     _id: uuid(),
-    img: "./assets/w7.jpg",
-    productBrand: "Hrx",
-    categoryName: "Women",
-    productDetail: "Revolution 6 Next Nature Road Running Shoes",
-    originalPrice: 11000,
-    price: 10000,
-    discount: 50,
-    ratings: 3.1,
-    inStock: false,
-    fastDelivery: true,
-    productCount: 4,
-  },
-  {
-    _id: uuid(),
-    img: "./assets/w8.jpg",
+    id: 18,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct3_vAmLyo_R9.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658841624",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel3_GiBQ7tAYh.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839512",
     productBrand: "Reebok",
-    categoryName: "Women",
+    categoryName: "Kids",
     productDetail: "Downshifter 11 Road s Running Shoes For Men ",
     originalPrice: 10000,
     price: 9000,
@@ -257,12 +371,17 @@ export const products = [
     inStock: true,
     fastDelivery: true,
     productCount: 1,
+    color: "black",
   },
   {
     _id: uuid(),
-    img: "./assets/w9.jpg",
+    id: 19,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct1_2dYSr5Y0s.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658840667",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel1_7J2ki8cQT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839285",
     productBrand: "Reebok",
-    categoryName: "Women",
+    categoryName: "Kids, New Arrivals",
     productDetail: "Revolution 4 Running Shoes For Men  (Black)",
     originalPrice: 10000,
     price: 9000,
@@ -271,12 +390,18 @@ export const products = [
     inStock: true,
     fastDelivery: false,
     productCount: 8,
+    color: "white",
   },
+
   {
     _id: uuid(),
-    img: "./assets/w10.jpg",
+    id: 21,
+    productImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct6_u0QazgbZZ.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658844065",
+    modelImg:
+      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel6_bmYXiWxAF.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658840498",
     productBrand: "Hrx",
-    categoryName: "Women",
+    categoryName: "Kids",
     productDetail: "Revolution 6 Next Nature Road Running Shoes",
     originalPrice: 11000,
     price: 10000,
@@ -285,5 +410,6 @@ export const products = [
     inStock: false,
     fastDelivery: true,
     productCount: 4,
+    color: "black",
   },
 ];

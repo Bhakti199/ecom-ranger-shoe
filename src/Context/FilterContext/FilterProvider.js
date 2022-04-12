@@ -10,11 +10,13 @@ const FilterProvider = ({ children }) => {
   const initialValue = {
     category: "",
     sortByRange: 0,
-    sortByPrice: "",
+
     sortByBrand: [],
     includeOutOfStock: "include",
     includeFastDelivery: "",
     sortByRatings: "",
+    sortByOrder: "",
+    sortByColor: "",
     cartList: [],
     wishList: [],
   };

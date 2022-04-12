@@ -1,8 +1,8 @@
 .vertical-card-product {
   position: relative;
   border: 1px solid var(--light-grey);
-  height: 19rem;
-  width: 12rem;
+  height: 100%;
+  width: 100%;
 }
 .vertical-card-img-container {
   height: 85%;
@@ -11,6 +11,7 @@
 .responsive-img-card {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 .vertical-card-text {
   padding-left: 10px;
@@ -28,7 +29,7 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
-  color: var(--light-grey);
+  color: var(--grey-color);
 }
 .add-to-cart-btn {
   opacity: 0;

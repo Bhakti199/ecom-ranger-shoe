@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Categories } from "../../Components/Index";
 import { GiHamburgerMenu } from "react-icons/gi";
 
-import { BsHandbag, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
+import { BsCart2, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
 
 import { MdCancel } from "react-icons/md";
 import { Link } from "react-router-dom";
@@ -13,7 +13,6 @@ import { HamburgurMenuList } from "../../Components/Index";
 export const Navbar = () => {
   const { dispatch, state } = useFilter();
   const { cartList, wishList } = state;
-  const [isHamburgurOpen, setIsHamburgurOpen] = useState(false);
   const sum = (acc, curr) => (acc = acc + curr.count);
   const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
 
@@ -24,20 +23,6 @@ export const Navbar = () => {
         Rs.2500+.
       </div>
       <nav className="navbar-ecom flex ">
-        <div className="hamburger icon-badge">
-          {isHamburgurOpen ? (
-            <MdCancel
-              className="icon-hover"
-              onClick={() => setIsHamburgurOpen((prevStatus) => !prevStatus)}
-            />
-          ) : (
-            <GiHamburgerMenu
-              className="icon-hover"
-              onClick={() => setIsHamburgurOpen((prevStatus) => !prevStatus)}
-            />
-          )}
-        </div>
-
         <div className="flex list">
           <Link to="/" className="ranger-logo">
             <img src="./assets/R.png" alt="logo" className="logo-ecom" />
@@ -65,7 +50,7 @@ export const Navbar = () => {
           <li className="">
             <Link to="/wishlist-page">
               <button className="badge-on-icon ">
-                <BsHeart className="icon-size icon-hover" />
+                <BsHeart size={25} />
                 {wishList.length > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
                     <span>{wishList.length}</span>
@@ -77,7 +62,11 @@ export const Navbar = () => {
           <li className="">
             <Link to="/cart-page">
               <button className="badge-on-icon">
-                <BsHandbag className="icon-badge icon-size icon-hover" />
+                <BsCart2
+                  className="icon-badge icon-hover"
+                  size={27}
+                  color="var(--black-color)"
+                />
                 {cartCount > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
                     <span>{cartCount}</span>

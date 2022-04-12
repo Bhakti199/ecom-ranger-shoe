@@ -2,20 +2,12 @@ const composeFunction = (state, functionList, data) =>
   functionList.reduce((accumulator, currentFunction) => {
     return currentFunction(accumulator, state);
   }, data);
-const productListByCategory = (productList, state) => {
-  switch (state.category) {
-    case "Men":
-      return [...productList].filter(
-        (product) => product.categoryName === state.category
+const productListByCategory = (productList, state) =>
+  state.categoryName === ""
+    ? productList
+    : [...productList].filter((product) =>
+        product.categoryName.includes(state.category)
       );
-    case "Women":
-      return [...productList].filter(
-        (product) => product.categoryName === state.category
-      );
-    default:
-      return productList;
-  }
-};
 
 const productListByRange = (productList, state) =>
   state.sortByRange === 0
@@ -23,7 +15,7 @@ const productListByRange = (productList, state) =>
     : [...productList].filter((product) => product.price <= state.sortByRange);
 
 const productListByPrice = (productList, state) => {
-  switch (state.sortByPrice) {
+  switch (state.sortByOrder) {
     case "lowToHigh":
       return [...productList].sort(
         (first, second) => first.price - second.price
@@ -74,6 +66,11 @@ const productListByRatings = (productList, state) => {
   }
 };
 
+const productListByColor = (productList, state) =>
+  state.sortByColor === ""
+    ? productList
+    : productList.filter((item) => item.color === state.sortByColor);
+
 const productListByBrand = (productList, state) => {
   const brandList = state.sortByBrand;
   return brandList.length === 0
@@ -81,6 +78,20 @@ const productListByBrand = (productList, state) => {
     : [...productList].filter((product) =>
         brandList.some((brandName) => brandName === product.productBrand)
       );
+};
+const productListByAscendingOrder = (productList, state) => {
+  switch (state.sortByOrder) {
+    case "SORT_ASCENDING_ORDER":
+      return [...productList].sort((first, second) =>
+        second.productBrand > first.productBrand ? -1 : 1
+      );
+    case "SORT_DESCENDING_ORDER":
+      return [...productList].sort((first, second) =>
+        second.productBrand < first.productBrand ? -1 : 1
+      );
+    default:
+      return productList;
+  }
 };
 
 const functionList = [
@@ -91,5 +102,7 @@ const functionList = [
   productListFastDelivery,
   productListByBrand,
   productListByRatings,
+  productListByAscendingOrder,
+  productListByColor,
 ];
 export { functionList, composeFunction };

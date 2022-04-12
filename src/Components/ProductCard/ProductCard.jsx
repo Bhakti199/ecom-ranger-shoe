@@ -1,10 +1,8 @@
 import "./ProductCard.css";
-import { BsFillStarFill, BsCart2 } from "react-icons/bs";
-import { BsFillHeartFill, BsHeart } from "react-icons/bs";
-import { FaRupeeSign } from "react-icons/fa";
+import { BsCart2, BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { useFilter } from "../../Context/index";
 import toast from "react-hot-toast";
-export const ProductCard = () => {
+export const ProductCard = ({ imageDisplay }) => {
   const { showProductList, dispatch, state } = useFilter();
   const { wishList } = state;
   return (
@@ -13,7 +11,13 @@ export const ProductCard = () => {
         <section className="flex-row-center" key={item._id}>
           <div className="vertical-card-product">
             <div className="vertical-card-img-container">
-              <img src={item.img} alt="" className="responsive-img-card" />
+              <img
+                src={
+                  imageDisplay === "products" ? item.productImg : item.modelImg
+                }
+                alt="product"
+                className="responsive-img-card cursor"
+              />
               <span className="wishlist flex-row-center">
                 {wishList.some((product) => product._id === item._id) ? (
                   <BsFillHeartFill
