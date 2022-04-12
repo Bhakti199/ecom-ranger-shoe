@@ -1,21 +1,107 @@
+.product-listing-page {
+  width: 95%;
+  display: flex;
+  margin: 2rem auto;
+}
 .main {
-  padding: 1rem;
-  margin: 5rem 1rem 1rem 18.7rem;
+  padding: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  width: 80%;
   height: 100%;
 }
 .products {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
 }
 
+.select-menu {
+  padding: 6px 1rem;
+  margin-left: 10px;
+}
+.sort-by-row-container {
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+.line-between {
+  border-top: 1px solid var(--grey-color);
+  flex-grow: 1;
+}
+.btn-filter {
+  padding: 0 10px;
+  display: none;
+}
+.border-bottom-green {
+  color: var(--dark-green);
+  border-bottom: 3px solid var(--dark-green);
+}
+.border-bottom-white {
+  border-bottom: 3px solid var(--white-color);
+}
+.sort-by-display-control {
+  display: block;
+}
+
+.drawer-background {
+  display: block;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+@media screen and (max-width: 1320px) {
+  .product-listing-page {
+    width: 95%;
+    margin: auto;
+  }
+  .main {
+    width: 80%;
+  }
+
+  .sort-by-row-container {
+    margin-top: 1rem;
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 900px) {
+  .products {
+    gap: 5px;
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+  }
+  .sort-by-display-control {
+    display: none;
+  }
+  .main {
+    width: 100%;
+  }
+  .line-between {
+    display: none;
+  }
+  .btn-filter {
+    display: flex;
+  }
+}
 @media screen and (max-width: 500px) {
   .main {
     padding: 0;
-    margin: 5rem 0 0 0;
   }
-  .products {
-    gap: 0;
-    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  .select-menu {
+    padding: 0;
+    margin: 0;
+  }
+  .sort-by-row-container {
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .select-menu {
+    margin-left: 3px;
   }
 }

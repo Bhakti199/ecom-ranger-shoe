@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
 import "./Home.css";
 import { sliderData, settings, brands } from "./HomeUtils";
 export const Home = () => {
@@ -20,7 +19,14 @@ export const Home = () => {
           <div className="video-sub-title">
             Ranger Shoe is a destination for style seekers.
           </div>
-          <button className="cta-button">Shop Now</button>
+          <Link to="/product-listing">
+            <button
+              className="cta-button"
+              onClick={() => dispatch({ type: "CLEAR_CATEGORY" })}
+            >
+              Shop Now
+            </button>
+          </Link>
         </div>
       </div>
 
@@ -55,7 +61,7 @@ export const Home = () => {
 
           <div className="model-two">
             <img
-              src="./assets/banner-v-7.webp"
+              src="./assets/kidsBanner.jpg"
               alt="banner"
               className="responsive-img-model model-hover"
             />
@@ -66,7 +72,9 @@ export const Home = () => {
       <div className="brand-row-container">
         {brands.map((brand) => (
           <div className="brand" key={brand.id}>
-            <img className="responsive-img" src={brand.img} alt="brand img" />
+            <Link to="/product-listing">
+              <img className="responsive-img" src={brand.img} alt="brand img" />
+            </Link>
           </div>
         ))}
       </div>
@@ -88,7 +96,14 @@ export const Home = () => {
                 </div>
                 <span className="must-have-details">{slide.productDetail}</span>
                 <div className="slider-text">
-                  <button className="slider-button">Shop Now</button>
+                  <Link to="/product-listing">
+                    <button
+                      className="slider-button"
+                      onClick={() => dispatch({ type: "CLEAR_CATEGORY" })}
+                    >
+                      Shop Now
+                    </button>
+                  </Link>
                 </div>
               </div>
             ))}

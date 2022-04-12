@@ -1,5 +1,5 @@
 .categories {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   display: flex;
   gap: 1.4rem;
   justify-content: center;
@@ -17,7 +17,9 @@
 }
 @media screen and (max-width: 500px) {
   .categories {
-    gap: 0.6rem;
+    display: inline;
     font-size: 1rem;
+    width: 95%;
+    margin: auto;
   }
 }

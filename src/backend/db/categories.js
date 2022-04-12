@@ -15,13 +15,13 @@ export const categories = [
 
   {
     _id: uuid(),
-    categoryName: "New",
+    categoryName: "Women",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
   },
   {
     _id: uuid(),
-    categoryName: "Sale",
+    categoryName: "Kids",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
   },
@@ -33,7 +33,7 @@ export const categories = [
   },
   {
     _id: uuid(),
-    categoryName: "Women",
+    categoryName: "New Arrivals",
     description:
       "Non-fiction is writing that gives information or describes real events, rather than telling a story.",
   },

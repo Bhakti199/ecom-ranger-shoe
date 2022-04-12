@@ -2,7 +2,7 @@ import React from "react";
 import "../../Components/Navbar/Navbar.css";
 import "../../Components/NavbarMblView/NavbarMblView.css";
 import { Categories } from "../../Components/Index";
-import { BsHandbag, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
+import { BsCart2, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/index";
 
@@ -50,7 +50,7 @@ export const NavbarMblView = () => {
           <li className="">
             <Link to="/cart-page">
               <button className="badge-on-icon">
-                <BsHandbag className="icon-badge icon-size icon-hover" />
+                <BsCart2 className="icon-badge icon-size icon-hover" />
                 {cartCount > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
                     <span>{cartCount}</span>

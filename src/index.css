@@ -3,6 +3,7 @@
 :root {
   --black-color: black;
   --dark-green: #4b5563;
+  --grey-color: #9ca3af;
   --white-color: white;
   --light-grey: #e2e8f0;
   --cream-mint: #f7fff6;
@@ -29,6 +30,9 @@ body {
 }
 .wishlist-btn-passive {
   border: 1px solid var(--black-color);
+}
+.cursor {
+  cursor: pointer;
 }
 @media screen and (max-width: 500px) {
   html {
