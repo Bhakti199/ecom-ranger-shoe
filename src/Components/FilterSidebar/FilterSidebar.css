@@ -1,28 +1,24 @@
-:root {
-  --cream-color: #fed7aa;
-  --red-color: #dc2626;
-  --purple-color: #7e22ce;
-}
 .drawer {
-  position: sticky;
-  top: 0;
-  width: 20%;
-  height: 100%;
-  z-index: 2;
+  position: fixed;
+  top: 6rem;
+  left: 0;
+  width: 18rem;
+  height: 85vh;
+  z-index: 1;
   overflow-y: scroll;
   transition: transform 0.3s ease-in-out;
-  border: 1px solid var(--light-grey);
+  border-right: 1px solid var(--light-grey);
   padding-bottom: 2rem;
   background-color: var(--white-color);
 }
-.clear-all-row {
-  width: 18rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-.clear-all {
-  margin-right: auto;
+
+.btn-filter {
+  position: fixed;
+  z-index: 1;
+  display: none;
+  background-color: var(--lightest-blue);
+  border: none;
+  padding: 10px 1rem;
 }
 .filter-heading {
   color: var(--dark-black);
@@ -44,87 +40,46 @@
   border-bottom: 1px solid var(--light-grey);
 }
 
+/* slider */
 .slider {
   width: 12rem;
   height: 7px;
-  accent-color: var(--cta-green);
-}
-.sort-by-list {
-  gap: 1rem;
-  padding: 0;
 }
 
+/* checkbox */
+.sort-by-list {
+  gap: 0.5rem;
+  padding: 0;
+}
+.sort-by-item {
+  gap: 1rem;
+  color: var(--dark-black);
+}
 .checkbox {
-  width: 13px;
-  height: 13px;
-  accent-color: var(--cta-green);
+  width: 1rem;
+  height: 1rem;
 }
-.radio-btn {
-  accent-color: var(--cta-green);
-}
-.filter-color-row {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 0;
+.star-filter {
+  font-size: 1rem;
 }
 .button {
   border: none;
   background-color: transparent;
 }
-.filterBar-cancel-btn {
-  display: none;
-}
-.sort-by-display {
-  display: none;
-}
-@media screen and (max-width: 1250px) {
-  .drawer {
-    width: 25%;
-  }
-}
-@media screen and (max-width: 900px) {
-  /* .drawer-container {
-    display: flex;
-    position: fixed;
-    inset: 0;
-    transform: translateX(-100vh);
-    transition: transform 250ms ease-in-out;
-  } */
-  .drawer {
-    z-index: 1;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 18rem;
-    transform: translateX(-18rem);
-    transition: transform 250ms ease-in-out;
-    background: var(--white-color);
-  }
-  .sort-by-display {
-    display: block;
-  }
+@media screen and (max-width: 500px) {
   .drawer-close {
     transform: translateX(-18rem);
   }
   .drawer-open {
     transform: translateX(0);
   }
-
-  .filterBar-cancel-btn {
-    display: flex;
+  .drawer {
+    margin-top: 2rem;
   }
-}
-@media screen and (max-width: 500px) {
   .btn-filter {
     display: flex;
   }
   .products {
     gap: 10px;
-  }
-  .sort-by {
-    margin: 1rem 0;
   }
 }

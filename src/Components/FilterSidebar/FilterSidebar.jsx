@@ -1,34 +1,36 @@
 import "./FilterSidebar.css";
 import { AiFillStar } from "react-icons/ai";
 import { useFilter } from "../../Context/index";
-import { BsFillCircleFill, BsX } from "react-icons/bs";
-import { BrandClickHandler } from "./BrandSetter";
-export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
+
+export const FilterSidebar = ({ openFilterBar }) => {
   const { state, dispatch } = useFilter();
 
+  const BrandClickHandler = (event) => {
+    const checked = event.target.checked;
+    const typeBrand = event.target.value;
+    if (checked) {
+      return { type: "SET_BRAND", payload: typeBrand };
+    } else {
+      return { type: "UNSET_BRAND", payload: typeBrand };
+    }
+  };
   return (
     <form
       className={`drawer ${openFilterBar ? "drawer-open" : "drawer-close"}`}
     >
       <div className="flex drawer-header">
-        <p className="clear-all-row">
+        <p>
           <button
-            className="button clear-all"
+            className="button"
             type="reset"
             onClick={() => dispatch({ type: "CLEAR_ALL_FILTERS" })}
           >
             Clear All
           </button>
-          <BsX
-            size={35}
-            className="filterBar-cancel-btn"
-            onClick={() => setOpenFilterBar(false)}
-          />
         </p>
       </div>
-
       <div className="drawer-item-wrapper flex-col">
-        <p className="margin-top-bottom-zero filter-heading">Prince Range</p>
+        <p className="margin-top-bottom-zero filter-heading">PRICE</p>
 
         <div className="slider-container flex-col">
           <input
@@ -43,92 +45,50 @@ export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
           />
         </div>
       </div>
-      <div className="drawer-item-wrapper sort-by-display">
-        <p className="margin-top-bottom-zero filter-heading">Sort By </p>
-        <div className="sort-by-container sort-by">
-          <select
-            className="select-menu"
-            onChange={(e) => dispatch({ type: e.target.value })}
-          >
-            <option value={"CLEAR_SORT_BY"}>Sort By</option>
-            <option value={"PRICE_LOW_TO_HIGH"}>price- low to high</option>
-            <option value={"PRICE_HIGH_TO_LOW"}>price- high to low</option>
-            <option value={"SORT_ASCENDING_ORDER"}>Name (A-Z)</option>
-            <option value={"SORT_DESCENDING_ORDER"}>Name (Z-A))</option>
-          </select>
-        </div>
-      </div>
-
       <div className="drawer-item-wrapper flex-col">
-        <p className="margin-top-bottom-zero filter-heading">Category Brands</p>
+        <p className="margin-top-bottom-zero filter-heading">SORT BY</p>
+        <p
+          className="margin-top-bottom-zero"
+          onClick={() => dispatch({ type: "UNSET_PRICE" })}
+        >
+          Clear Price
+        </p>
         <div>
           <ul className="list margin-top-bottom-zero flex-col sort-by-list">
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
-                  type="checkbox"
-                  className="checkbox"
-                  value="Puma"
-                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                  type="radio"
+                  name="price-sort"
+                  checked={state.sortByPrice === "lowToHigh"}
+                  onChange={() => dispatch({ type: "PRICE_LOW_TO_HIGH" })}
                 />
-                Puma
+                Price- low to high
               </label>
             </li>
-            <li className="flex-row">
+            <li className="flex-row sort-by-item">
               <label>
+                {" "}
                 <input
-                  type="checkbox"
-                  className="checkbox"
-                  value="Adidas"
-                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                  type="radio"
+                  name="price-sort"
+                  checked={state.sortByPrice === "highToLow"}
+                  onChange={() => dispatch({ type: "PRICE_HIGH_TO_LOW" })}
                 />
-                Adidas
-              </label>
-            </li>
-            <li className="flex-row ">
-              <label>
-                <input
-                  type="checkbox"
-                  name="reebok"
-                  value="Nike"
-                  className="checkbox"
-                  onChange={(event) => dispatch(BrandClickHandler(event))}
-                />
-                Nike
-              </label>
-            </li>
-            <li className="flex-row ">
-              <label>
-                <input
-                  type="checkbox"
-                  value="Reebok"
-                  className="checkbox"
-                  onChange={(event) => dispatch(BrandClickHandler(event))}
-                />
-                Reebok
-              </label>
-            </li>
-            <li className="flex-row ">
-              <label>
-                <input
-                  type="checkbox"
-                  value="Hrx"
-                  className="checkbox"
-                  onChange={(event) => dispatch(BrandClickHandler(event))}
-                />
-                HRX by Hritik Roshan
+                Price- high to low
               </label>
             </li>
           </ul>
         </div>
       </div>
+
       <div className="drawer-item-wrapper flex-col">
         <p className="margin-top-bottom-zero filter-heading">
-          Sort by availability
+          SORT BY AVAILABILITY
         </p>
         <div>
           <ul className="list margin-top-bottom-zero flex-col sort-by-list">
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
                   type="checkbox"
@@ -140,7 +100,7 @@ export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
                 Include out of stock
               </label>
             </li>
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
                   type="checkbox"
@@ -155,106 +115,116 @@ export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
           </ul>
         </div>
       </div>
-      <div className="drawer-item-wrapper">
-        <div className="filter-heading">Colors</div>
-        <div className="filter-color-row">
-          <span
-            className="cursor"
-            onClick={() => dispatch({ type: "SORT_BY_COLOR", payload: "" })}
-          >
-            All
-          </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--cream-color)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "cream" })
-              }
-            />
-          </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--red-color)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "red" })
-              }
-            />
-          </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--black-color)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "black" })
-              }
-            />
-          </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--light-grey)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "grey" })
-              }
-            />
-          </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--purple-color)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "purple" })
-              }
-            />
-          </span>
-        </div>
-      </div>
+
       <div className="drawer-item-wrapper flex-col">
-        <p className="margin-top-bottom-zero filter-heading">Ratings</p>
+        <p className="margin-top-bottom-zero filter-heading">RATING</p>
         <div>
           <p
-            className="margin-top-bottom-zero cursor"
+            className="margin-top-bottom-zero"
             onClick={() => dispatch({ type: "UNSET_RATINGS" })}
           >
+            {" "}
             clear ratings
           </p>
           <ul className="list  flex-col sort-by-list">
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
                   type="radio"
                   name="rating"
-                  className="radio-btn"
                   checked={state.sortByRatings === "fourPlus"}
                   onChange={() => dispatch({ type: "RATINGS_FOUR_PLUS" })}
                 />
-                4 and above
+                4 <AiFillStar className="star-filter" /> and above
               </label>
             </li>
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
                   type="radio"
                   name="rating"
-                  className="radio-btn"
                   checked={state.sortByRatings === "threeToFour"}
                   onChange={() => dispatch({ type: "RATINGS_THREE_TO_FOUR" })}
                 />
-                3 to 4
+                3 <AiFillStar className="star-filter" />
+                to 4
+                <AiFillStar className="star-filter" />
               </label>
             </li>
-            <li className="flex-row ">
+            <li className="flex-row sort-by-item">
               <label>
                 <input
                   type="radio"
                   name="rating"
-                  className="radio-btn"
                   checked={state.sortByRatings === "threeBelow"}
                   onChange={() => dispatch({ type: "RATINGS_THREE_BELOW" })}
                 />
-                3 and below
+                3 <AiFillStar className="star-filter" /> and below
+              </label>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="drawer-item-wrapper flex-col">
+        <p className="margin-top-bottom-zero filter-heading">CATEGORY BRAND</p>
+        <div>
+          <ul className="list margin-top-bottom-zero flex-col sort-by-list">
+            <li className="flex-row sort-by-item">
+              <label>
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  value="Puma"
+                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                />
+                Puma
+              </label>
+            </li>
+            <li className="flex-row sort-by-item">
+              <label>
+                <input
+                  type="checkbox"
+                  className="checkbox"
+                  value="Adidas"
+                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                />
+                Adidas
+              </label>
+            </li>
+            <li className="flex-row sort-by-item">
+              <label>
+                <input
+                  type="checkbox"
+                  name="reebok"
+                  value="Nike"
+                  className="checkbox"
+                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                />
+                Nike
+              </label>
+            </li>
+            <li className="flex-row sort-by-item">
+              <label>
+                <input
+                  type="checkbox"
+                  value="Reebok"
+                  className="checkbox"
+                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                />
+                Reebok
+              </label>
+            </li>
+            <li className="flex-row sort-by-item">
+              <label>
+                {" "}
+                <input
+                  type="checkbox"
+                  value="Hrx"
+                  className="checkbox"
+                  onChange={(event) => dispatch(BrandClickHandler(event))}
+                />
+                HRX by Hritik Roshan
               </label>
             </li>
           </ul>
