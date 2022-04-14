@@ -1,0 +1,114 @@
+.single-product-page {
+  position: relative;
+  height: 100vh;
+  width: 80%;
+  background-color: var(--white-color);
+  margin: 1rem auto;
+  display: flex;
+}
+.back-to-products {
+  position: absolute;
+  top: 9rem;
+  left: 3rem;
+  border: 1px solid var(--black-color);
+  width: fit-content;
+  padding: 10px 1rem;
+}
+.product-img-container {
+  position: relative;
+  width: 50%;
+  height: 100%;
+}
+.product-detail-container {
+  position: relative;
+  width: 30%;
+  height: 100%;
+  padding: 0 2rem;
+}
+.product-img-container {
+  display: flex;
+}
+.product-img-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  height: 100%;
+}
+.product-img-col-individual {
+  width: 100%;
+  height: 20%;
+  flex-grow: 1;
+}
+.product-main-img {
+  width: 80%;
+  height: 100%;
+  object-fit: cover;
+}
+.responsive-img-product {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.product-detail-part-one {
+  position: relative;
+  width: 100%;
+}
+.single-product-title {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.size-menu {
+  padding: 1rem;
+  width: 80%;
+  margin: auto;
+}
+.single-product-cart-btn {
+  padding: 1rem;
+  width: 80%;
+  margin-top: 1rem;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+.slider-single-product-card {
+  height: 20rem;
+  width: 20rem;
+}
+@media screen and (max-width: 900px) {
+  .single-product-page {
+    flex-direction: column;
+    width: 90%;
+    height: 60rem;
+  }
+  .back-to-products {
+    display: none;
+  }
+  .product-img-container {
+    height: 70%;
+    width: 100%;
+  }
+  .product-detail-container {
+    width: 100%;
+    height: 50%;
+  }
+}
+@media screen and (max-width: 500px) {
+  .product-img-container {
+    height: 50%;
+  }
+  .product-detail-container {
+    padding: 3rem 10px 10px 10px;
+  }
+}

@@ -2,22 +2,27 @@ import "./ProductCard.css";
 import { BsCart2, BsFillHeartFill, BsHeart } from "react-icons/bs";
 import { useFilter } from "../../Context/index";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 export const ProductCard = ({ imageDisplay }) => {
   const { showProductList, dispatch, state } = useFilter();
   const { wishList } = state;
   return (
     <>
       {showProductList.map((item) => (
-        <section className="flex-row-center" key={item._id}>
+        <section className="ecom-product-card" key={item._id}>
           <div className="vertical-card-product">
             <div className="vertical-card-img-container">
-              <img
-                src={
-                  imageDisplay === "products" ? item.productImg : item.modelImg
-                }
-                alt="product"
-                className="responsive-img-card cursor"
-              />
+              <Link to={`/single-product-page/${item.id}`}>
+                <img
+                  src={
+                    imageDisplay === "products"
+                      ? item.productImg
+                      : item.modelImg
+                  }
+                  alt="product"
+                  className="responsive-img-card cursor"
+                />
+              </Link>
               <span className="wishlist flex-row-center">
                 {wishList.some((product) => product._id === item._id) ? (
                   <BsFillHeartFill
@@ -53,7 +58,13 @@ export const ProductCard = ({ imageDisplay }) => {
                 </p>
               </div>
             </div>
-            <div className="add-to-cart-btn">
+            <div
+              className="add-to-cart-btn"
+              onClick={() => {
+                dispatch({ type: "ADD_TO_CART", payload: item }),
+                  toast("added to cart", { icon: "✔️" });
+              }}
+            >
               <BsCart2 size={17} fontWeight={100} className="cart-icon" />
             </div>
           </div>

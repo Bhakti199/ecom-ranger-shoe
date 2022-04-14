@@ -4,7 +4,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./Home.css";
 import { sliderData, settings, brands } from "./HomeUtils";
+import { useFilter } from "../../Context/index";
 export const Home = () => {
+  const { dispatch } = useFilter();
   return (
     <div className="landing-page-home flex-col">
       <div className="video-container flex">
