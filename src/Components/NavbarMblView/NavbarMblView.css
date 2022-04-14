@@ -1,0 +1,40 @@
+.navabar-mbl-view {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+}
+.nav-ecom-mbl-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  margin: auto;
+}
+.navbar-second-part {
+  display: flex;
+  align-items: center;
+}
+@media screen and (max-width: 1170px) {
+  .brand-search-container {
+    justify-content: space-between;
+    width: 50%;
+    margin: 1rem auto;
+  }
+}
+@media screen and (max-width: 500px) {
+  .brand-search-container {
+    margin: 1rem auto;
+    justify-content: space-between;
+    width: 95%;
+  }
+  .brand-search-input {
+    width: 22rem;
+  }
+  .free-shipping-msg {
+    font-size: 8px;
+  }
+  .category-desktop-view {
+    text-align: center;
+  }
+}

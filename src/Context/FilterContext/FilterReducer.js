@@ -24,14 +24,26 @@ export const filterManagement = (state, action) => {
     case "PRICE_LOW_TO_HIGH": {
       return {
         ...state,
-        sortByPrice: "lowToHigh",
+        sortByOrder: "lowToHigh",
       };
     }
 
     case "PRICE_HIGH_TO_LOW": {
       return {
         ...state,
-        sortByPrice: "highToLow",
+        sortByOrder: "highToLow",
+      };
+    }
+    case "SORT_ASCENDING_ORDER": {
+      return {
+        ...state,
+        sortByOrder: "SORT_ASCENDING_ORDER",
+      };
+    }
+    case "SORT_DESCENDING_ORDER": {
+      return {
+        ...state,
+        sortByOrder: "SORT_DESCENDING_ORDER",
       };
     }
     case "UNSET_PRICE":
@@ -54,6 +66,11 @@ export const filterManagement = (state, action) => {
           state.includeFastDelivery === "include" ? "exclude" : "include",
       };
     }
+    case "SORT_BY_COLOR":
+      return {
+        ...state,
+        sortByColor: action.payload,
+      };
     case "RATINGS_FOUR_PLUS":
       return {
         ...state,
@@ -132,11 +149,16 @@ export const filterManagement = (state, action) => {
         ...state,
         wishList: removeFromWishList(action.payload, state.wishList),
       };
+    case "CLEAR_SORT_BY":
+      return {
+        ...state,
+        sortByPrice: "",
+        sortByOrder: "",
+      };
     case "CLEAR_ALL_FILTERS":
       return {
         ...state,
         sortByRange: 0,
-        sortByPrice: "",
         sortByBrand: [],
         includeOutOfStock: "include",
         includeFastDelivery: "",
