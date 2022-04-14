@@ -120,7 +120,12 @@ export const SingleProductPage = () => {
             </div>
             <p>Puma</p>
             <p>Rs. 2999</p>
-            <p>REVIEWS: {}</p>
+            <p>
+              REVIEWS:{" "}
+              {[...Array(productToShow?.ratings)].map((ratings, index) => (
+                <BsStarFill key={index} size={14} />
+              ))}
+            </p>
           </div>
 
           <button
