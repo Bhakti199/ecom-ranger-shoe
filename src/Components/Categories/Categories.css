@@ -1,25 +1,12 @@
 .categories {
-  font-size: 1.1rem;
   display: flex;
-  gap: 1.4rem;
+  gap: 2rem;
   justify-content: center;
 }
-
 .category {
   color: black;
-  border-bottom: 3px solid var(--white-color);
-  padding: 10px;
 }
 .category:hover {
-  color: var(--dark-green);
-  border-bottom: 3px solid var(--dark-green);
+  color: var(--medium-blue);
   cursor: pointer;
-}
-@media screen and (max-width: 500px) {
-  .categories {
-    display: inline;
-    font-size: 1rem;
-    width: 95%;
-    margin: auto;
-  }
 }
