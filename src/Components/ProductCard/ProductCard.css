@@ -1,3 +1,7 @@
+.ecom-product-card {
+  position: relative;
+  height: 100%;
+}
 .vertical-card-product {
   position: relative;
   border: 1px solid var(--light-grey);

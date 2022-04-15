@@ -25,7 +25,11 @@ export const Navbar = () => {
       <nav className="navbar-ecom flex ">
         <div className="flex list">
           <Link to="/" className="ranger-logo">
-            <img src="./assets/R.png" alt="logo" className="logo-ecom" />
+            <img
+              src="https://res.cloudinary.com/bhakti1801/image/upload/v1649919109/R_ezqx3h.png"
+              alt="logo"
+              className="logo-ecom"
+            />
           </Link>
         </div>
 
