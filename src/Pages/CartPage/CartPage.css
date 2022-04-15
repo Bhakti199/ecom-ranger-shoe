@@ -1,3 +1,7 @@
+.cart-page-container {
+  margin-top: 1rem;
+  min-height: 100vh;
+}
 .cart-page-title {
   padding-top: 1rem;
   color: var(--dark-black);

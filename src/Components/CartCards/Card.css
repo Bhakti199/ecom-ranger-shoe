@@ -1,3 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600&display=swap");
+.horizontal-card {
+  width: 32rem;
+}
+.horizontal-card,
+.text-card {
+  position: relative;
+  border: none;
+}
+.cart-wishlist-icon {
+  position: absolute;
+  top: 1rem;
+  right: 10px;
+}
+.horizontal-cart-card-img {
+  position: relative;
+  max-width: 20rem;
+}
+.text-card:hover {
+  box-shadow: none;
+}
 .incre-decre-btn {
   font-size: 1rem;
   font-weight: bold;
@@ -7,11 +28,72 @@
 .icon-size {
   font-size: 1.5rem;
 }
-@media screen and (max-width: 500px) {
+.button-cart {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  border-radius: 0;
+  height: fit-content;
+  width: 80%;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+.discount-text,
+.vertical-card-content-two,
+.current-price {
+  font-weight: 400;
+}
+.horizontal-card-sectionTwo {
+  justify-content: space-between;
+}
+.primary-btn-lg {
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  border-radius: 0;
+}
+.responsive-image-cart {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.cart-empty-msg {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  background-color: var(--cream-mint);
+  padding: 1rem 3rem;
+  width: fit-content;
+}
+.cart-empty-msg-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.cart-msg-btn {
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  padding: 1rem 3rem;
+  font-size: 1rem;
+}
+.wishlist-color {
+  background-color: red;
+  color: red;
+}
+@media screen and (max-width: 900px) {
   .horizontal-card {
-    width: 30rem;
+    width: 23rem;
+    height: 12rem;
+  }
+  .horizontal-cart-card-img {
+    height: 13rem;
+    width: 10rem;
   }
   .incre-decre-btn {
     font-size: 3rem;
+  }
+  .button-cart {
+    width: 90%;
   }
 }
