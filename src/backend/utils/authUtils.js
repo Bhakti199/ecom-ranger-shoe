@@ -4,6 +4,7 @@ import dayjs from "dayjs";
 
 export const requiresAuth = function (request) {
   const encodedToken = request.requestHeaders.authorization;
+  console.log(encodedToken);
   const decodedToken = jwt.verify(
     encodedToken,
     process.env.REACT_APP_JWT_SECRET

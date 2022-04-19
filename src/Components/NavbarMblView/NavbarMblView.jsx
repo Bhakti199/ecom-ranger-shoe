@@ -4,13 +4,13 @@ import "../../Components/NavbarMblView/NavbarMblView.css";
 import { Categories } from "../../Components/Index";
 import { BsCart2, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useFilter } from "../../Context/index";
+import { useUser } from "../../Context/index";
 
 export const NavbarMblView = () => {
-  const { dispatch, state } = useFilter();
-  const { cartList, wishList } = state;
-  const sum = (acc, curr) => (acc = acc + curr.count);
-  const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
+  const { user, isUserLoggedIn } = useUser();
+  const { cart, wishlist } = user;
+  const sum = (acc, curr) => (acc = acc + curr.qty);
+  const cartCount = cart && cart.reduce(sum, 0);
 
   return (
     <div className="navabar-mbl-view">
@@ -35,17 +35,17 @@ export const NavbarMblView = () => {
 
         <ul className="navbar-second-part flex list">
           <li className="">
-            <div>
+            <Link to="/login">
               <BsPerson size={28} />
-            </div>
+            </Link>
           </li>
           <li className="">
             <Link to="/wishlist-page">
               <button className="badge-on-icon ">
                 <BsHeart className="icon-size icon-hover" />
-                {wishList.length > 0 && (
+                {isUserLoggedIn && wishlist && wishlist.length > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
-                    <span>{wishList.length}</span>
+                    <span>{wishlist.length}</span>
                   </div>
                 )}
               </button>
@@ -55,7 +55,7 @@ export const NavbarMblView = () => {
             <Link to="/cart-page">
               <button className="badge-on-icon">
                 <BsCart2 className="icon-badge icon-size icon-hover" />
-                {cartCount > 0 && (
+                {cartCount > 0 && isUserLoggedIn && (
                   <div className="badge-on-icon-notify flex-row-center">
                     <span>{cartCount}</span>
                   </div>

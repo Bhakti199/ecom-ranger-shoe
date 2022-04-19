@@ -1,11 +1,19 @@
 import "./ProductCard.css";
 import { BsCart2, BsFillHeartFill, BsHeart } from "react-icons/bs";
-import { useFilter } from "../../Context/index";
+import {
+  // addItemToCartCall,
+  addItemToWishlistCall,
+  removeItemFromWishlistCall,
+} from "../../ApiCalls";
+import { useFilter, useUser } from "../../Context/index";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 export const ProductCard = ({ imageDisplay }) => {
-  const { showProductList, dispatch, state } = useFilter();
-  const { wishList } = state;
+  const { showProductList, dispatch } = useFilter();
+  const { user, addItemToCart, addItemToWishlist, removeItemFromWishlist } =
+    useUser();
+  const { wishlist } = user;
+
   return (
     <>
       {showProductList.map((item) => (
@@ -24,24 +32,22 @@ export const ProductCard = ({ imageDisplay }) => {
                 />
               </Link>
               <span className="wishlist flex-row-center">
-                {wishList.some((product) => product._id === item._id) ? (
+                {wishlist &&
+                wishlist.some((product) => product._id === item._id) ? (
                   <BsFillHeartFill
                     size={21}
                     className="wishList-icon"
                     onClick={() => {
-                      dispatch({
-                        type: "REMOVE_FROM_WISHLIST",
-                        payload: item,
-                      }),
-                        toast("removed from wishlist", { icon: "❌" });
+                      removeItemFromWishlist(item._id);
+                      toast("removed from wishlist", { icon: "❌" });
                     }}
                   />
                 ) : (
                   <BsHeart
                     size={21}
                     onClick={() => {
-                      dispatch({ type: "ADD_TO_WISHLIST", payload: item }),
-                        toast("added to wishlist", { icon: "✔️" });
+                      addItemToWishlist(item);
+                      toast("added to wishlist", { icon: "✔️" });
                     }}
                   />
                 )}
@@ -61,8 +67,7 @@ export const ProductCard = ({ imageDisplay }) => {
             <div
               className="add-to-cart-btn"
               onClick={() => {
-                dispatch({ type: "ADD_TO_CART", payload: item }),
-                  toast("added to cart", { icon: "✔️" });
+                addItemToCart(item);
               }}
             >
               <BsCart2 size={17} fontWeight={100} className="cart-icon" />

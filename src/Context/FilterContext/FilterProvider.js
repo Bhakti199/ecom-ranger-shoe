@@ -10,15 +10,12 @@ const FilterProvider = ({ children }) => {
   const initialValue = {
     category: "",
     sortByRange: 0,
-
     sortByBrand: [],
     includeOutOfStock: "include",
     includeFastDelivery: "",
     sortByRatings: "",
     sortByOrder: "",
     sortByColor: "",
-    cartList: [],
-    wishList: [],
   };
 
   const [state, dispatch] = useReducer(filterManagement, initialValue);

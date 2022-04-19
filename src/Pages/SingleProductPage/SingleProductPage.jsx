@@ -1,7 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { useProductList, useUser } from "../../Context/index";
 import "./SingleProductPage.css";
-import { Link } from "react-router-dom";
 import toast from "react-hot-toast";
+
 import {
   BsStarFill,
   BsCart2,
@@ -9,16 +11,14 @@ import {
   BsHeart,
   BsArrowLeft,
 } from "react-icons/bs";
-import { useFilter, useProductList } from "../../Context/index";
-import { useParams } from "react-router-dom";
-import { useState } from "react";
+
 export const SingleProductPage = () => {
-  const { dispatch, state } = useFilter();
   const { productList } = useProductList();
-  const { wishList } = state;
+  const { user, addItemToCart, addItemToWishlist, removeItemFromWishlist } =
+    useUser();
+  const { wishlist } = user;
   const product = useParams();
   const productToShow = productList.find((item) => item.id === product.product);
-  console.log(productToShow?.modelImg);
   const [mainImg, setMainImg] = useState(productToShow?.modelImg);
   useEffect(() => {
     setMainImg(productToShow?.modelImg);
@@ -90,29 +90,24 @@ export const SingleProductPage = () => {
               {productToShow?.productDetail}
               {productToShow?.productBrand}
               <span className="single-product-wishlist">
-                {wishList.some(
+                {wishlist &&
+                wishlist.some(
                   (product) => product?.id === productToShow?.id
                 ) ? (
                   <BsFillHeartFill
                     size={21}
                     className="wishList-icon"
                     onClick={() => {
-                      dispatch({
-                        type: "REMOVE_FROM_WISHLIST",
-                        payload: productToShow,
-                      }),
-                        toast("removed from wishlist", { icon: "❌" });
+                      removeItemFromWishlist(productToShow._id);
+                      toast("removed from wishlist", { icon: "❌" });
                     }}
                   />
                 ) : (
                   <BsHeart
                     size={21}
                     onClick={() => {
-                      dispatch({
-                        type: "ADD_TO_WISHLIST",
-                        payload: productToShow,
-                      }),
-                        toast("added to wishlist", { icon: "✔️" });
+                      addItemToWishlist(productToShow);
+                      toast("added to wishlist", { icon: "✔️" });
                     }}
                   />
                 )}
@@ -128,16 +123,17 @@ export const SingleProductPage = () => {
             </p>
           </div>
 
-          <button
-            className="single-product-cart-btn"
-            onClick={() => {
-              dispatch({ type: "ADD_TO_CART", payload: productToShow }),
-                toast("added to cart", { icon: "✔️" });
-            }}
-          >
-            <BsCart2 size={22} />
-            Add
-          </button>
+          <Link to="/cart-page">
+            <button
+              className="single-product-cart-btn"
+              onClick={() => {
+                addItemToCart(productToShow);
+              }}
+            >
+              <BsCart2 size={22} />
+              Add
+            </button>
+          </Link>
         </div>
       </div>
     </div>

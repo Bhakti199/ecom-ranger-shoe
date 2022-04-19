@@ -1,15 +1,3 @@
-import {
-  addItemToCart,
-  removeItemFromCart,
-  incrementCartItem,
-  decrementCartItem,
-} from "./CartUtils";
-import {
-  addToWishList,
-  removeFromWishList,
-  // addToWishListAndRemoveFromCart,
-} from "./WishListUtils";
-
 export const filterManagement = (state, action) => {
   switch (action.type) {
     case "SET_CATEGORY":
@@ -105,49 +93,6 @@ export const filterManagement = (state, action) => {
         sortByBrand: state.sortByBrand.filter(
           (brandName) => brandName !== action.payload
         ),
-      };
-    case "ADD_TO_CART": {
-      return {
-        ...state,
-        cartList: addItemToCart(action.payload, state.cartList),
-      };
-    }
-
-    case "REMOVE_FROM_CART": {
-      return {
-        ...state,
-        cartList: removeItemFromCart(action.payload, state.cartList),
-      };
-    }
-
-    case "INCREMENT_CART_ITEM":
-      return {
-        ...state,
-        cartList: incrementCartItem(action.payload, state.cartList),
-      };
-    case "DECREMENT_CART_ITEM":
-      return {
-        ...state,
-        cartList: decrementCartItem(action.payload, state.cartList),
-      };
-    case "ADD_TO_WISHLIST_REMOVE_FROM_CART":
-      return {
-        ...state,
-        wishList: addToWishListAndRemoveFromCart(
-          action.payload,
-          state.wishList,
-          state.cartList
-        ),
-      };
-    case "ADD_TO_WISHLIST":
-      return {
-        ...state,
-        wishList: addToWishList(action.payload, state.wishList),
-      };
-    case "REMOVE_FROM_WISHLIST":
-      return {
-        ...state,
-        wishList: removeFromWishList(action.payload, state.wishList),
       };
     case "CLEAR_SORT_BY":
       return {

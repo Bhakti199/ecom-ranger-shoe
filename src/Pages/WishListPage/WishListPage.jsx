@@ -1,21 +1,24 @@
 import React from "react";
-import "./WishListPage.css";
-import "../../Components/ProductCard/ProductCard.css";
-import { useFilter } from "../../Context/index";
-import { BsFillStarFill, BsFillHeartFill, BsCart2 } from "react-icons/bs";
-import { FaRupeeSign } from "react-icons/fa";
+import { useFilter, useUser } from "../../Context/index";
+import { BsFillHeartFill, BsCart2 } from "react-icons/bs";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import "./WishListPage.css";
+import "../../Components/ProductCard/ProductCard.css";
+
 export const WishListPage = () => {
   const { state, dispatch } = useFilter();
-  const { wishList } = state;
+  const { user, addItemToWishlist, removeItemFromWishlist, addItemToCart } =
+    useUser();
+  const { wishlist } = user;
+
   return (
     <>
       <div className="landing-page bg-color">
         <h2 className="wishlist-page-title">FAVOURITES</h2>
         <div className="wishlist-page flex wrap">
-          {wishList.length > 0 ? (
-            wishList.map((item) => (
+          {wishlist.length > 0 ? (
+            wishlist.map((item) => (
               <div className="wishlist-card">
                 <section className="ecom-product-card" key={item._id}>
                   <div className="vertical-card-product">
@@ -28,29 +31,23 @@ export const WishListPage = () => {
                         />
                       </Link>
                       <span className="wishlist flex-row-center">
-                        {wishList.some(
+                        {wishlist.some(
                           (product) => product._id === item._id
                         ) ? (
                           <BsFillHeartFill
                             size={21}
                             className="wishList-icon"
                             onClick={() => {
-                              dispatch({
-                                type: "REMOVE_FROM_WISHLIST",
-                                payload: item,
-                              }),
-                                toast("removed from wishlist", { icon: "❌" });
+                              removeItemFromWishlist(item._id);
+                              toast("removed from wishlist", { icon: "❌" });
                             }}
                           />
                         ) : (
                           <BsHeart
                             size={21}
                             onClick={() => {
-                              dispatch({
-                                type: "ADD_TO_WISHLIST",
-                                payload: item,
-                              }),
-                                toast("added to wishlist", { icon: "✔️" });
+                              addItemToWishlist(item);
+                              toast("added to wishlist", { icon: "✔️" });
                             }}
                           />
                         )}
@@ -68,10 +65,11 @@ export const WishListPage = () => {
                       </div>
                     </div>
                     <div
+                      // to="/cart-page"
                       className="add-to-cart-btn"
                       onClick={() => {
-                        dispatch({ type: "ADD_TO_CART", payload: item }),
-                          toast("added to cart", { icon: "✔️" });
+                        addItemToCart(item);
+                        toast("added to cart", { icon: "✔️" });
                       }}
                     >
                       <BsCart2
