@@ -6,6 +6,7 @@ import { FaRupeeSign } from "react-icons/fa";
 export const BillCardForCart = () => {
   const { user, isUserLoggedIn } = useUser();
   const { cart } = user;
+
   let price = calculatePrice(cart) ?? 0;
   let discountObj = discountPrice(cart) ?? 0;
   return (
