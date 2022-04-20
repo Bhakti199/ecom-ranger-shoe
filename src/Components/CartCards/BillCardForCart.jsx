@@ -1,16 +1,17 @@
 import React from "react";
-import { useFilter } from "../../Context/index";
+import { useUser } from "../../Context/index";
 import { calculatePrice, discountPrice } from "./CardUtils";
 import { AiOutlineMinus } from "react-icons/ai";
 import { FaRupeeSign } from "react-icons/fa";
 export const BillCardForCart = () => {
-  const { state } = useFilter();
-  const { cartList } = state;
-  let price = calculatePrice(cartList) ?? 0;
-  let discountObj = discountPrice(cartList) ?? 0;
+  const { user, isUserLoggedIn } = useUser();
+  const { cart } = user;
+
+  let price = calculatePrice(cart) ?? 0;
+  let discountObj = discountPrice(cart) ?? 0;
   return (
     <>
-      {cartList.length > 0 && (
+      {isUserLoggedIn && cart && cart.length > 0 && (
         <div className="text-card">
           <div className="text-card-section-one">
             <h3 className="margin-top-bottom-zero">PRICE DETAILS</h3>

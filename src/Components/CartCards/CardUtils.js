@@ -1,8 +1,8 @@
 export const calculatePrice = (cartList) => {
   let priceArray = cartList.map((product) =>
     product.count === 1
-      ? product.cartItem.originalPrice
-      : product.cartItem.originalPrice * product.count
+      ? product.originalPrice
+      : product.originalPrice * product.qty
   );
   const sum = (num1, num2) => num1 + num2;
   let sumPrice = priceArray.reduce(sum, 0);
@@ -15,9 +15,9 @@ export const discountPrice = (cartList) => {
     (acc, curr) => ({
       discount:
         curr.count === 1
-          ? acc.discount + curr.cartItem.discount
-          : acc.discount + curr.cartItem.discount * curr.count,
-      numberOFItems: acc.numberOFItems + curr.count,
+          ? acc.discount + curr.discount
+          : acc.discount + curr.discount * curr.qty,
+      numberOFItems: acc.numberOFItems + curr.qty,
     }),
     { discount: 0, numberOFItems: 0 }
   );

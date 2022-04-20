@@ -1,5 +1,10 @@
 import "./App.css";
-import { Navbar, NavbarMblView, Footer } from "./Components/Index";
+import {
+  Navbar,
+  NavbarMblView,
+  Footer,
+  RequiresAuth,
+} from "./Components/Index";
 import { Toaster } from "react-hot-toast";
 import {
   Home,
@@ -7,6 +12,8 @@ import {
   CartPage,
   WishListPage,
   SingleProductPage,
+  LoginPage,
+  SignUpPage,
 } from "./Pages/index";
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
@@ -25,8 +32,24 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/mockman" element={<MockMan />} />
         <Route path="/product-listing" element={<ProductListingPage />} />
-        <Route path="/cart-page" element={<CartPage />} />
-        <Route path="/wishlist-page" element={<WishListPage />} />
+        <Route
+          path="/cart-page"
+          element={
+            <RequiresAuth>
+              <CartPage />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/wishlist-page"
+          element={
+            <RequiresAuth>
+              <WishListPage />
+            </RequiresAuth>
+          }
+        />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/sign-up" element={<SignUpPage />} />
         <Route
           path="/single-product-page/:product"
           element={<SingleProductPage />}

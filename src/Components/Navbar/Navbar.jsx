@@ -1,20 +1,15 @@
 import React from "react";
 import "./Navbar.css";
 import { Categories } from "../../Components/Index";
-import { GiHamburgerMenu } from "react-icons/gi";
-
 import { BsCart2, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
-
-import { MdCancel } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { useFilter } from "../../Context/index";
-import { useState } from "react";
-import { HamburgurMenuList } from "../../Components/Index";
+import { useFilter, useUser } from "../../Context/index";
+
 export const Navbar = () => {
-  const { dispatch, state } = useFilter();
-  const { cartList, wishList } = state;
-  const sum = (acc, curr) => (acc = acc + curr.count);
-  const cartCount = cartList.length > 0 ? cartList.reduce(sum, 0) : 0;
+  const { user, isUserLoggedIn } = useUser();
+  const { cart, wishlist } = user;
+  const sum = (acc, curr) => (acc = acc + curr.qty);
+  const cartCount = cart && cart.reduce(sum, 0);
 
   return (
     <>
@@ -47,17 +42,17 @@ export const Navbar = () => {
         </div>
         <ul className="navbar-second-part flex list">
           <li className="">
-            <div>
+            <Link to="/login">
               <BsPerson size={28} />
-            </div>
+            </Link>
           </li>
           <li className="">
             <Link to="/wishlist-page">
               <button className="badge-on-icon ">
                 <BsHeart size={25} />
-                {wishList.length > 0 && (
+                {isUserLoggedIn && wishlist && wishlist.length > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
-                    <span>{wishList.length}</span>
+                    <span>{wishlist.length}</span>
                   </div>
                 )}
               </button>
@@ -71,7 +66,7 @@ export const Navbar = () => {
                   size={27}
                   color="var(--black-color)"
                 />
-                {cartCount > 0 && (
+                {isUserLoggedIn && cartCount > 0 && (
                   <div className="badge-on-icon-notify flex-row-center">
                     <span>{cartCount}</span>
                   </div>

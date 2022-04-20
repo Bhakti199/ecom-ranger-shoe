@@ -62,7 +62,9 @@
   display: flex;
   justify-content: space-between;
 }
-
+.single-product-wishlist {
+  margin-right: 1rem;
+}
 .size-menu {
   padding: 1rem;
   width: 80%;

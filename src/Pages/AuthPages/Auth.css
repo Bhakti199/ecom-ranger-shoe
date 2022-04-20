@@ -1,0 +1,55 @@
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  height: 80vh;
+  margin-top: 2rem;
+}
+
+.login-form-ecom {
+  width: 20rem;
+  height: fit-content;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  background-color: var(--cream-mint);
+}
+.form-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 90%;
+}
+.form-input-ecom {
+  border: none;
+  padding: 5px 0;
+  border-bottom: 1px solid var(--black-color);
+  background-color: var(--cream-mint);
+  outline: none;
+}
+.form-input-ecom::placeholder {
+  font-size: 14px;
+}
+.login-form-btn {
+  width: 90%;
+  border: none;
+  background-color: var(--black-color);
+  color: var(--white-color);
+  font-size: 1rem;
+  padding: 0.5rem 0;
+}
+.register-text {
+  margin-top: 3rem;
+  letter-spacing: 0.5px;
+}
+.login-guest {
+  cursor: pointer;
+  font-size: 1.2rem;
+  border-bottom: 1px solid var(--black-color);
+}
+
+@media screen and (max-width: 900px) {
+}

@@ -1,20 +1,29 @@
-import React from "react";
-import { useFilter } from "../../Context/index";
+import React, { useState } from "react";
+import { useFilter, useUser } from "../../Context/index";
 import "./Card.css";
+import { VscTrash } from "react-icons/vsc";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { BsHeart, BsFillHeartFill } from "react-icons/bs";
 import toast from "react-hot-toast";
 export const ProductCardForCart = () => {
   const { state, dispatch } = useFilter();
-  const { cartList, wishList } = state;
+  // const { wishList } = state;
+  const {
+    user,
+    removeItemFromCart,
+    updateCartQuantity,
+    addItemToWishlist,
+    removeItemFromWishlist,
+  } = useUser();
+  const { cart, wishlist } = user;
   return (
     <>
-      {cartList &&
-        cartList.map((item) => (
-          <div className="horizontal-card" key={item.cartItem.id}>
+      {cart &&
+        cart.map((item) => (
+          <div className="horizontal-card" key={item.id}>
             <div className="horizontal-cart-card-img">
               <img
-                src={item.cartItem.productImg}
+                src={item.productImg}
                 alt="product"
                 className="responsive-image-cart"
               />
@@ -22,51 +31,64 @@ export const ProductCardForCart = () => {
             <div className="horizontal-card-sectionTwo flex-col">
               <div className="horizontal-card-content">
                 <h4 className="vertical-card-content-two margin-top-bottom-zero">
-                  {item.cartItem.productDetail} by {item.cartItem.productBrand}
+                  {item.productDetail} by {item.productBrand}
                 </h4>
                 <div className="cart-wishlist-icon">
-                  <span
-                    onClick={() => {
-                      dispatch({
-                        type: "ADD_TO_WISHLIST",
-                        payload: item.cartItem,
-                      });
-                      dispatch({ type: "REMOVE_FROM_CART", payload: item });
-                      toast("added to wishlist", { icon: "✔️" });
-                    }}
-                  >
-                    {wishList.some((product) => product.id === item.id) ? (
-                      <BsFillHeartFill size={21} className="wishList-icon" />
+                  <span>
+                    {wishlist.some((product) => product.id === item.id) ? (
+                      <BsFillHeartFill
+                        size={21}
+                        className="wishList-icon"
+                        onClick={() => {
+                          removeItemFromWishlist(item._id);
+                          toast("added to wishlist", { icon: "✔️" });
+                        }}
+                      />
                     ) : (
-                      <BsHeart size={21} />
+                      <BsHeart
+                        size={21}
+                        onClick={() => {
+                          addItemToWishlist(item);
+                          toast("added to wishlist", { icon: "✔️" });
+                        }}
+                      />
                     )}
                   </span>
                 </div>
                 <div className="vertical-card-content-three flex-start-row">
                   <p className="margin-top-bottom-zero current-price">
                     Rs.
-                    {item.cartItem.originalPrice}
-                    <span className="discount-text">
-                      ({item.cartItem.discount}%)
-                    </span>
+                    {item.originalPrice}
+                    <span className="discount-text">({item.discount}%)</span>
                   </p>
                 </div>
                 <div className="quantity-section flex">
                   <span>quantity:</span>
-                  <button
-                    className="button"
-                    onClick={() =>
-                      dispatch({ type: "DECREMENT_CART_ITEM", payload: item })
-                    }
-                  >
-                    <AiFillMinusCircle className="icon-size" />
+                  <button className="button">
+                    {item.qty > 1 ? (
+                      <AiFillMinusCircle
+                        className="icon-size"
+                        onClick={() => {
+                          updateCartQuantity(item._id, "decrement");
+                          toast("removed from cart", { icon: "❌" });
+                        }}
+                      />
+                    ) : (
+                      <VscTrash
+                        size={22}
+                        onClick={() => {
+                          removeItemFromCart(item._id);
+                          toast("removed from cart", { icon: "❌" });
+                        }}
+                      />
+                    )}
                   </button>
-                  <span className="quantity">{item.count}</span>
+                  <span className="quantity">{item.qty}</span>
                   <button
                     className="button"
-                    onClick={() =>
-                      dispatch({ type: "INCREMENT_CART_ITEM", payload: item })
-                    }
+                    onClick={() => {
+                      updateCartQuantity(item._id, "increment");
+                    }}
                   >
                     <AiFillPlusCircle className="icon-size" />
                   </button>
@@ -76,8 +98,8 @@ export const ProductCardForCart = () => {
                 <button
                   className="primary-btn-md-two  button-cart"
                   onClick={() => {
-                    dispatch({ type: "REMOVE_FROM_CART", payload: item }),
-                      toast("removed from cart", { icon: "❌" });
+                    removeItemFromCart(item._id);
+                    toast("removed from cart", { icon: "❌" });
                   }}
                 >
                   Remove from cart
