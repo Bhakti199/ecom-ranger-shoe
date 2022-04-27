@@ -17,13 +17,34 @@ export const Footer = () => {
       </p>
       <div className="footer-icons">
         <div>
-          <AiFillGithub size={33} />
+          <a
+            className="social-links"
+            href="https://github.com/Bhakti199"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiFillGithub size={33} />
+          </a>
         </div>
         <div>
-          <AiOutlineTwitter size={33} />
+          <a
+            className="social-links"
+            href="https://twitter.com/Bhaktee_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiOutlineTwitter size={33} />
+          </a>
         </div>
         <div>
-          <AiFillLinkedin size={33} />
+          <a
+            className="social-links"
+            href="https://www.linkedin.com/in/bhakti-kharatkar-33178a200/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <AiFillLinkedin size={33} />
+          </a>
         </div>
       </div>
       <div className="footer-terms-conditions">

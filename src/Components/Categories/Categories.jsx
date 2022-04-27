@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useFilter } from "../../Context/FilterContext/FilterProvider";
 export const Categories = () => {
   const [categoryList, setCategoryList] = useState([]);
-  const { state, dispatch } = useFilter();
+  const { dispatch } = useFilter();
   useEffect(() => {
     (async () => {
       try {

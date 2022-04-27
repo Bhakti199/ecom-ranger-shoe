@@ -37,6 +37,9 @@ body {
 .center-text {
   text-align: center;
 }
+.social-links {
+  color: var(--white-color);
+}
 
 @media screen and (max-width: 500px) {
   html {

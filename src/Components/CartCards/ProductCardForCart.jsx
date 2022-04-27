@@ -1,13 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useFilter, useUser } from "../../Context/index";
 import "./Card.css";
 import { VscTrash } from "react-icons/vsc";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { BsHeart, BsFillHeartFill } from "react-icons/bs";
-import toast from "react-hot-toast";
 export const ProductCardForCart = () => {
   const { state, dispatch } = useFilter();
-  // const { wishList } = state;
   const {
     user,
     removeItemFromCart,
@@ -39,18 +37,12 @@ export const ProductCardForCart = () => {
                       <BsFillHeartFill
                         size={21}
                         className="wishList-icon"
-                        onClick={() => {
-                          removeItemFromWishlist(item._id);
-                          toast("added to wishlist", { icon: "✔️" });
-                        }}
+                        onClick={() => removeItemFromWishlist(item._id)}
                       />
                     ) : (
                       <BsHeart
                         size={21}
-                        onClick={() => {
-                          addItemToWishlist(item);
-                          toast("added to wishlist", { icon: "✔️" });
-                        }}
+                        onClick={() => addItemToWishlist(item)}
                       />
                     )}
                   </span>
@@ -68,27 +60,21 @@ export const ProductCardForCart = () => {
                     {item.qty > 1 ? (
                       <AiFillMinusCircle
                         className="icon-size"
-                        onClick={() => {
-                          updateCartQuantity(item._id, "decrement");
-                          toast("removed from cart", { icon: "❌" });
-                        }}
+                        onClick={() =>
+                          updateCartQuantity(item._id, "decrement")
+                        }
                       />
                     ) : (
                       <VscTrash
                         size={22}
-                        onClick={() => {
-                          removeItemFromCart(item._id);
-                          toast("removed from cart", { icon: "❌" });
-                        }}
+                        onClick={() => removeItemFromCart(item._id)}
                       />
                     )}
                   </button>
                   <span className="quantity">{item.qty}</span>
                   <button
                     className="button"
-                    onClick={() => {
-                      updateCartQuantity(item._id, "increment");
-                    }}
+                    onClick={() => updateCartQuantity(item._id, "increment")}
                   >
                     <AiFillPlusCircle className="icon-size" />
                   </button>
@@ -97,10 +83,7 @@ export const ProductCardForCart = () => {
               <div className="horizontal-card-btn flex-col-center">
                 <button
                   className="primary-btn-md-two  button-cart"
-                  onClick={() => {
-                    removeItemFromCart(item._id);
-                    toast("removed from cart", { icon: "❌" });
-                  }}
+                  onClick={() => removeItemFromCart(item._id)}
                 >
                   Remove from cart
                 </button>

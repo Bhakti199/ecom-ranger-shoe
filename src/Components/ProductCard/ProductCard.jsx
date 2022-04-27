@@ -1,15 +1,9 @@
 import "./ProductCard.css";
 import { BsCart2, BsFillHeartFill, BsHeart } from "react-icons/bs";
-import {
-  // addItemToCartCall,
-  addItemToWishlistCall,
-  removeItemFromWishlistCall,
-} from "../../ApiCalls";
 import { useFilter, useUser } from "../../Context/index";
-import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 export const ProductCard = ({ imageDisplay }) => {
-  const { showProductList, dispatch } = useFilter();
+  const { showProductList } = useFilter();
   const { user, addItemToCart, addItemToWishlist, removeItemFromWishlist } =
     useUser();
   const { wishlist } = user;
@@ -37,19 +31,10 @@ export const ProductCard = ({ imageDisplay }) => {
                   <BsFillHeartFill
                     size={21}
                     className="wishList-icon"
-                    onClick={() => {
-                      removeItemFromWishlist(item._id);
-                      toast("removed from wishlist", { icon: "❌" });
-                    }}
+                    onClick={() => removeItemFromWishlist(item._id)}
                   />
                 ) : (
-                  <BsHeart
-                    size={21}
-                    onClick={() => {
-                      addItemToWishlist(item);
-                      toast("added to wishlist", { icon: "✔️" });
-                    }}
-                  />
+                  <BsHeart size={21} onClick={() => addItemToWishlist(item)} />
                 )}
               </span>
             </div>
@@ -64,14 +49,13 @@ export const ProductCard = ({ imageDisplay }) => {
                 </p>
               </div>
             </div>
-            <div
+            <Link
+              to="/cart-page"
               className="add-to-cart-btn"
-              onClick={() => {
-                addItemToCart(item);
-              }}
+              onClick={() => addItemToCart(item)}
             >
               <BsCart2 size={17} fontWeight={100} className="cart-icon" />
-            </div>
+            </Link>
           </div>
         </section>
       ))}

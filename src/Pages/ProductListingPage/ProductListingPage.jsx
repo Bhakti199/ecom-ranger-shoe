@@ -1,11 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { FilterSidebar, ProductCard } from "../../Components/Index";
-import { useFilter } from "../../Context/FilterContext/FilterProvider";
+import { FilterSidebar, ProductCard, Loaders } from "../../Components/Index";
+import { useFilter, useProductList } from "../../Context";
 import { BsFilter } from "react-icons/bs";
 import "./ProductListingPage.css";
 export const ProductListingPage = () => {
   const { showProductList, dispatch } = useFilter();
+  const { showLoader } = useProductList;
   const [openFilterBar, setOpenFilterBar] = useState(false);
   const [imageDisplay, setImageDisplay] = useState("products");
 
