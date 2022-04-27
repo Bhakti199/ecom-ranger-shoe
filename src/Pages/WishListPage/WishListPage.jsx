@@ -1,7 +1,6 @@
 import React from "react";
 import { useFilter, useUser } from "../../Context/index";
 import { BsFillHeartFill, BsCart2 } from "react-icons/bs";
-import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import "./WishListPage.css";
 import "../../Components/ProductCard/ProductCard.css";
@@ -37,18 +36,12 @@ export const WishListPage = () => {
                           <BsFillHeartFill
                             size={21}
                             className="wishList-icon"
-                            onClick={() => {
-                              removeItemFromWishlist(item._id);
-                              toast("removed from wishlist", { icon: "❌" });
-                            }}
+                            onClick={() => removeItemFromWishlist(item._id)}
                           />
                         ) : (
                           <BsHeart
                             size={21}
-                            onClick={() => {
-                              addItemToWishlist(item);
-                              toast("added to wishlist", { icon: "✔️" });
-                            }}
+                            onClick={() => addItemToWishlist(item)}
                           />
                         )}
                       </span>
@@ -65,12 +58,8 @@ export const WishListPage = () => {
                       </div>
                     </div>
                     <div
-                      // to="/cart-page"
                       className="add-to-cart-btn"
-                      onClick={() => {
-                        addItemToCart(item);
-                        toast("added to cart", { icon: "✔️" });
-                      }}
+                      onClick={() => addItemToCart(item)}
                     >
                       <BsCart2
                         size={17}

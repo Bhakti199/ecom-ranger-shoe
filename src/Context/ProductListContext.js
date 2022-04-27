@@ -1,8 +1,11 @@
 import axios from "axios";
 import { useContext, createContext, useState, useEffect } from "react";
+
 const ProductListContext = createContext([]);
 
 const ProductListProvider = ({ children }) => {
+  const [showLoader, setShowLoader] = useState(true);
+
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     (async () => {
@@ -11,6 +14,7 @@ const ProductListProvider = ({ children }) => {
           data: { products },
         } = await axios.get("/api/products");
         setProductList(products);
+        setShowLoader(false);
       } catch {
         console.error("error occured");
       }
@@ -18,7 +22,9 @@ const ProductListProvider = ({ children }) => {
   }, []);
 
   return (
-    <ProductListContext.Provider value={{ productList }}>
+    <ProductListContext.Provider
+      value={{ productList, showLoader, setShowLoader }}
+    >
       {children}
     </ProductListContext.Provider>
   );

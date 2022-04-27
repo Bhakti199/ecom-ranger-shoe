@@ -36,7 +36,7 @@ export const NavbarMblView = () => {
         <ul className="navbar-second-part flex list">
           <li className="">
             <Link to="/login">
-              <BsPerson size={28} />
+              <BsPerson size={28} color={"var(--black-color)"} />
             </Link>
           </li>
           <li className="">

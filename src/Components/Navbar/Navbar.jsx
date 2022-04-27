@@ -3,7 +3,7 @@ import "./Navbar.css";
 import { Categories } from "../../Components/Index";
 import { BsCart2, BsHeart, BsPerson, BsSearch } from "react-icons/bs";
 import { Link } from "react-router-dom";
-import { useFilter, useUser } from "../../Context/index";
+import { useUser } from "../../Context/index";
 
 export const Navbar = () => {
   const { user, isUserLoggedIn } = useUser();
@@ -43,7 +43,7 @@ export const Navbar = () => {
         <ul className="navbar-second-part flex list">
           <li className="">
             <Link to="/login">
-              <BsPerson size={28} />
+              <BsPerson size={28} color={"var(--black-color)"} />
             </Link>
           </li>
           <li className="">

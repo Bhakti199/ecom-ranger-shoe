@@ -1,5 +1,4 @@
 import "./FilterSidebar.css";
-import { AiFillStar } from "react-icons/ai";
 import { useFilter } from "../../Context/index";
 import { BsFillCircleFill, BsX } from "react-icons/bs";
 import { BrandClickHandler } from "./BrandSetter";
@@ -28,7 +27,7 @@ export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
       </div>
 
       <div className="drawer-item-wrapper flex-col">
-        <p className="margin-top-bottom-zero filter-heading">Prince Range</p>
+        <p className="margin-top-bottom-zero filter-heading">Price Range</p>
 
         <div className="slider-container flex-col">
           <input

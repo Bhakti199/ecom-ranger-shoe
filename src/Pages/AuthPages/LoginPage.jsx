@@ -2,8 +2,11 @@ import React from "react";
 import { getUser } from "../../ApiCalls";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import "./Auth.css";
-import { useUser } from "../../Context/AuthContext/UserContext";
+import { useUser, useProductList } from "../../Context";
+import toast from "react-hot-toast";
+import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
 export const LoginPage = () => {
+  const { setShowLoader } = useProductList();
   const { setIsUserLoggedIn, setUser, isUserLoggedIn } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
@@ -11,23 +14,31 @@ export const LoginPage = () => {
   const loginDetailsHandler = async (event) => {
     event.preventDefault();
     let [email, password] = event.target.elements;
-    console.log("enteredd values", email.value, password.value);
-
+    setShowLoader(true);
     const { data, status } = await getUser(email.value, password.value);
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
       navigate(location?.state?.from?.pathname || "/product-listing");
       localStorage.setItem("userLoginToken", data.encodedToken);
+      setShowLoader(false);
+      toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("User doesn't exist, please sign up.");
     }
   };
   const GuestLoginHandler = async (email, password) => {
+    setShowLoader(true);
     const { data, status } = await getUser(email, password);
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
       navigate(location?.state?.from?.pathname || "/product-listing");
       localStorage.setItem("userLoginToken", data.encodedToken);
+      setShowLoader(false);
+      toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("Some error occured, try after some time.");
     }
   };
 
@@ -40,6 +51,7 @@ export const LoginPage = () => {
             onClick={() => {
               setIsUserLoggedIn(false);
               localStorage.removeItem("userLoginToken");
+              toast("Logged out.", { icon: <BsCheckCircleFill /> });
             }}
           >
             logout

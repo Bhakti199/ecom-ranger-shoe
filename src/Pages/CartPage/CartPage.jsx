@@ -1,10 +1,9 @@
 import React from "react";
 import "./CartPage.css";
 import { ProductCardForCart, BillCardForCart } from "../../Components/Index";
-import { useFilter, useUser } from "../../Context/index";
+import { useUser } from "../../Context/index";
 import { Link } from "react-router-dom";
 export const CartPage = () => {
-  const { state } = useFilter();
   const { user } = useUser();
   const { cart } = user;
 

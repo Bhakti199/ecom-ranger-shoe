@@ -2,8 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useProductList, useUser } from "../../Context/index";
 import "./SingleProductPage.css";
-import toast from "react-hot-toast";
-
 import {
   BsStarFill,
   BsCart2,
@@ -97,18 +95,12 @@ export const SingleProductPage = () => {
                   <BsFillHeartFill
                     size={21}
                     className="wishList-icon"
-                    onClick={() => {
-                      removeItemFromWishlist(productToShow._id);
-                      toast("removed from wishlist", { icon: "❌" });
-                    }}
+                    onClick={() => removeItemFromWishlist(productToShow._id)}
                   />
                 ) : (
                   <BsHeart
                     size={21}
-                    onClick={() => {
-                      addItemToWishlist(productToShow);
-                      toast("added to wishlist", { icon: "✔️" });
-                    }}
+                    onClick={() => addItemToWishlist(productToShow)}
                   />
                 )}
               </span>
@@ -116,7 +108,7 @@ export const SingleProductPage = () => {
             <p>Puma</p>
             <p>Rs. 2999</p>
             <p>
-              REVIEWS:{" "}
+              REVIEWS:
               {[...Array(productToShow?.ratings)].map((ratings, index) => (
                 <BsStarFill key={index} size={14} />
               ))}
@@ -126,9 +118,7 @@ export const SingleProductPage = () => {
           <Link to="/cart-page">
             <button
               className="single-product-cart-btn"
-              onClick={() => {
-                addItemToCart(productToShow);
-              }}
+              onClick={() => addItemToCart(productToShow)}
             >
               <BsCart2 size={22} />
               Add

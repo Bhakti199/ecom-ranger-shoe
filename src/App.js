@@ -4,6 +4,7 @@ import {
   NavbarMblView,
   Footer,
   RequiresAuth,
+  Loaders,
 } from "./Components/Index";
 import { Toaster } from "react-hot-toast";
 import {
@@ -15,10 +16,13 @@ import {
   LoginPage,
   SignUpPage,
 } from "./Pages/index";
+import { useProductList } from "./Context";
 import MockMan from "mockman-js";
 import { Routes, Route } from "react-router-dom";
 
 function App() {
+  const { showLoader, setShowLoader } = useProductList();
+
   return (
     <>
       <div className="desktop-navbar">
@@ -27,6 +31,11 @@ function App() {
       <div className="mbl-navbar">
         <NavbarMblView />
       </div>
+      {showLoader && (
+        <div className="loader-container">
+          <Loaders />
+        </div>
+      )}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -55,7 +64,6 @@ function App() {
           element={<SingleProductPage />}
         />
       </Routes>
-
       <Toaster
         position="top-center"
         toastOptions={{ className: "toast", duration: 2000 }}
