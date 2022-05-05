@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import { useUser } from "../../Context/index";
 
 export const NavbarMblView = () => {
-  const { user, isUserLoggedIn } = useUser();
+  const { user, isUserLoggedIn, setSearchInput } = useUser();
   const { cart, wishlist } = user;
   const sum = (acc, curr) => (acc = acc + curr.qty);
   const cartCount = cart && cart.reduce(sum, 0);
@@ -74,6 +74,7 @@ export const NavbarMblView = () => {
           type="text"
           className="brand-search-input"
           placeholder="Search for Items"
+          onChange={(event) => setSearchInput(event.target.value)}
         />
         <BsSearch size={21} />
       </div>

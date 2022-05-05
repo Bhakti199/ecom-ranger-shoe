@@ -11,7 +11,8 @@ export const BillCardForCart = () => {
 
   let price = calculatePrice(cart) ?? 0;
   let discountObj = discountPrice(cart) ?? 0;
-  let order = { orderList: cart, _id: uuid() };
+  let totalAmount = Math.round(discountObj.totalBill + 199);
+  let discount = Math.round(discountObj.discountedPrice);
   return (
     <>
       {isUserLoggedIn && cart && cart.length > 0 && (
@@ -27,7 +28,7 @@ export const BillCardForCart = () => {
               <span className="margin-left">Discount</span>
               <span>
                 <AiOutlineMinus /> <FaRupeeSign />
-                {Math.round(discountObj.discountedPrice)}
+                {discount}
               </span>
             </p>
             <p className="text-card-item flex">
@@ -42,7 +43,7 @@ export const BillCardForCart = () => {
               <span className="margin-left min-bold">TOTAL AMOUNT</span>
               <span className="min-bold">
                 <FaRupeeSign />
-                {Math.round(discountObj.totalBill + 199)}
+                {totalAmount}
               </span>
             </p>
             <hr className="line-separate" />
@@ -51,14 +52,16 @@ export const BillCardForCart = () => {
               {Math.round(discountObj.discountedPrice)} on this purchase.
             </p>
           </div>
-          <Link to="/place-order" className="text-card-section-two flex">
+          <div className="text-card-section-two flex">
             <button
               className="primary-btn-lg"
-              onClick={() => addOrders({ name: "bhakti" })}
+              onClick={() =>
+                addOrders({ items: cart, _id: uuid(), totalAmount, discount })
+              }
             >
               Place Order
             </button>
-          </Link>
+          </div>
         </div>
       )}
     </>

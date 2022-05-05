@@ -8,10 +8,7 @@ export const PlaceOrderPage = () => {
   return (
     <div className="place-order-page">
       <Address />
-      <div>
-        <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit.</div>
-        <button>Confirm Order</button>
-      </div>
+      <div>PLACE ORDER PAGE.</div>
     </div>
   );
 };

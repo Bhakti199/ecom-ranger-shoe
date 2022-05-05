@@ -19,7 +19,7 @@ const UserProvider = ({ children }) => {
   const { setShowLoader } = useProductList();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [addressForOrder, setAddressForOrder] = useState("");
-
+  const [searchInput, setSearchInput] = useState("");
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
@@ -138,6 +138,8 @@ const UserProvider = ({ children }) => {
         addOrders,
         addressForOrder,
         setAddressForOrder,
+        searchInput,
+        setSearchInput,
       }}
     >
       {children}
