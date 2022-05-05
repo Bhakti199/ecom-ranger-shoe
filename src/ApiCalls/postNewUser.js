@@ -8,6 +8,7 @@ export const postNewUser = async (firstName, lastName, email, password) => {
       email,
       password,
     });
+    console.log(data, status);
     return { data, status };
   } catch (error) {
     console.error("Some error Occured try after some time.");

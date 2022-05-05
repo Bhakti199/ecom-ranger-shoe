@@ -1,18 +1,18 @@
 import axios from "axios";
-export const addItemToCartCall = async (product) => {
+export const addAddressCall = async (address) => {
   try {
     const { data, status } = await axios.post(
-      "/api/user/cart",
-      { product },
+      "/api/user/addresses",
+      { address },
       {
         headers: {
           authorization: localStorage.getItem("userLoginToken"),
         },
       }
     );
-    console.log(data, status);
-    return { cart: data.cart, status };
+    return { addresses: data.addresses, status };
   } catch (error) {
     console.error(error);
+    return error;
   }
 };

@@ -6,7 +6,6 @@ export const removeItemFromCartCall = async (productId) => {
         authorization: localStorage.getItem("userLoginToken"),
       },
     });
-    console.log(data);
     return { cart: data.cart, status };
   } catch (error) {
     console.error(error);

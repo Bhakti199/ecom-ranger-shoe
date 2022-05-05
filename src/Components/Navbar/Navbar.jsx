@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useUser } from "../../Context/index";
 
 export const Navbar = () => {
-  const { user, isUserLoggedIn } = useUser();
+  const { user, isUserLoggedIn, setSearchInput } = useUser();
   const { cart, wishlist } = user;
   const sum = (acc, curr) => (acc = acc + curr.qty);
   const cartCount = cart && cart.reduce(sum, 0);
@@ -37,12 +37,13 @@ export const Navbar = () => {
             type="text"
             className="brand-search-input"
             placeholder="Search for Items"
+            onChange={(event) => setSearchInput(event.target.value)}
           />
           <BsSearch size={21} />
         </div>
         <ul className="navbar-second-part flex list">
           <li className="">
-            <Link to="/login">
+            <Link to="/user-profile">
               <BsPerson size={28} color={"var(--black-color)"} />
             </Link>
           </li>

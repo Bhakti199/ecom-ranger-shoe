@@ -15,6 +15,8 @@ import {
   SingleProductPage,
   LoginPage,
   SignUpPage,
+  PlaceOrderPage,
+  UserProfilePage,
 } from "./Pages/index";
 import { useProductList } from "./Context";
 import MockMan from "mockman-js";
@@ -42,6 +44,15 @@ function App() {
         <Route path="/mockman" element={<MockMan />} />
         <Route path="/product-listing" element={<ProductListingPage />} />
         <Route
+          path="/user-profile"
+          element={
+            <RequiresAuth>
+              <UserProfilePage />
+            </RequiresAuth>
+          }
+        />
+
+        <Route
           path="/cart-page"
           element={
             <RequiresAuth>
@@ -54,6 +65,14 @@ function App() {
           element={
             <RequiresAuth>
               <WishListPage />
+            </RequiresAuth>
+          }
+        />
+        <Route
+          path="/place-order"
+          element={
+            <RequiresAuth>
+              <PlaceOrderPage />
             </RequiresAuth>
           }
         />
