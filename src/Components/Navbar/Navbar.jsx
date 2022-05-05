@@ -42,7 +42,7 @@ export const Navbar = () => {
         </div>
         <ul className="navbar-second-part flex list">
           <li className="">
-            <Link to="/login">
+            <Link to="/user-profile">
               <BsPerson size={28} color={"var(--black-color)"} />
             </Link>
           </li>

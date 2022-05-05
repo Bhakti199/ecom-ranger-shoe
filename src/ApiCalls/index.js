@@ -6,3 +6,6 @@ export { removeItemFromCartCall } from "./removeItemFromCartCall";
 export { updateCartItemCall } from "./updateCartItemCall";
 export { removeItemFromWishlistCall } from "./removeItemFromWishlistCall";
 export { getWishlistCall } from "./getWishlistCall";
+export { addAddressCall } from "./addAddressCall";
+export { removeAddressCall } from "./removeAddressCall";
+export { addOrdersCall } from "./addOrdersCall";

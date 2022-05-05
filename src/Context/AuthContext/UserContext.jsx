@@ -5,6 +5,9 @@ import {
   updateCartItemCall,
   addItemToWishlistCall,
   removeItemFromWishlistCall,
+  addAddressCall,
+  removeAddressCall,
+  addOrdersCall,
 } from "../../ApiCalls";
 import { useProductList } from "../../Context";
 import { useNavigate } from "react-router-dom";
@@ -15,6 +18,7 @@ const UserContext = createContext();
 const UserProvider = ({ children }) => {
   const { setShowLoader } = useProductList();
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [addressForOrder, setAddressForOrder] = useState("");
 
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -28,7 +32,6 @@ const UserProvider = ({ children }) => {
     if (isUserLoggedIn) {
       setShowLoader(true);
       const { cart, status } = await addItemToCartCall(product);
-      console.log("bhakti23wr44r");
       setUser((prevUser) => ({ ...prevUser, cart }));
       toast("Added item to cart", { icon: <BsCheckCircleFill /> });
       setShowLoader(false);
@@ -82,6 +85,42 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const addAddress = async (address) => {
+    setShowLoader(true);
+    const { addresses, status } = await addAddressCall(address);
+    if (status === 200 || status === 201) {
+      setUser((prevUser) => ({ ...prevUser, addresses }));
+      setShowLoader(false);
+
+      toast("Address added successfully", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("Please try after some time");
+    }
+  };
+
+  const removeAddress = async (addressId) => {
+    setShowLoader(true);
+    const { addresses, status } = await removeAddressCall(addressId);
+    if (status === 200 || status === 201) {
+      setUser((prevUser) => ({ ...prevUser, addresses }));
+      setShowLoader(false);
+      toast("Address deleted successfully", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("Please try after some time");
+    }
+  };
+
+  const addOrders = async (order) => {
+    setShowLoader(true);
+    const { orders, status } = await addOrdersCall(order);
+    if (status === 200 || status === 201) {
+      setUser((prevUser) => ({ ...prevUser, orders }));
+      setShowLoader(false);
+      toast("Order placed successfully", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("Please try after some time");
+    }
+  };
   return (
     <UserContext.Provider
       value={{
@@ -94,6 +133,11 @@ const UserProvider = ({ children }) => {
         updateCartQuantity,
         addItemToWishlist,
         removeItemFromWishlist,
+        addAddress,
+        removeAddress,
+        addOrders,
+        addressForOrder,
+        setAddressForOrder,
       }}
     >
       {children}

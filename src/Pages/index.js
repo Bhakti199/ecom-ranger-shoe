@@ -5,3 +5,5 @@ export { WishListPage } from "./WishListPage/WishListPage";
 export { SingleProductPage } from "./SingleProductPage/SingleProductPage";
 export { LoginPage } from "./AuthPages/LoginPage";
 export { SignUpPage } from "./AuthPages/SignUpPage";
+export { UserProfilePage } from "./UserProfilePage/UserProfilePage";
+export { PlaceOrderPage } from "./PlaceOrderPage/PlaceOrderPage";

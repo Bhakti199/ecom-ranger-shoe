@@ -5,6 +5,7 @@ import "./Auth.css";
 import { useUser, useProductList } from "../../Context";
 import toast from "react-hot-toast";
 import { BsCheckCircleFill, BsXCircleFill } from "react-icons/bs";
+import { UserProfilePage } from "../";
 export const LoginPage = () => {
   const { setShowLoader } = useProductList();
   const { setIsUserLoggedIn, setUser, isUserLoggedIn } = useUser();
@@ -45,18 +46,7 @@ export const LoginPage = () => {
   return (
     <div className="login-page">
       {isUserLoggedIn ? (
-        <>
-          "user profile will be here"
-          <button
-            onClick={() => {
-              setIsUserLoggedIn(false);
-              localStorage.removeItem("userLoginToken");
-              toast("Logged out.", { icon: <BsCheckCircleFill /> });
-            }}
-          >
-            logout
-          </button>
-        </>
+        <UserProfilePage />
       ) : (
         <>
           <div>

@@ -1,14 +1,17 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { v4 as uuid } from "uuid";
 import { useUser } from "../../Context/index";
 import { calculatePrice, discountPrice } from "./CardUtils";
 import { AiOutlineMinus } from "react-icons/ai";
 import { FaRupeeSign } from "react-icons/fa";
 export const BillCardForCart = () => {
-  const { user, isUserLoggedIn } = useUser();
+  const { user, isUserLoggedIn, addOrders } = useUser();
   const { cart } = user;
 
   let price = calculatePrice(cart) ?? 0;
   let discountObj = discountPrice(cart) ?? 0;
+  let order = { orderList: cart, _id: uuid() };
   return (
     <>
       {isUserLoggedIn && cart && cart.length > 0 && (
@@ -48,9 +51,14 @@ export const BillCardForCart = () => {
               {Math.round(discountObj.discountedPrice)} on this purchase.
             </p>
           </div>
-          <div className="text-card-section-two flex">
-            <button className="primary-btn-lg">Place Order</button>
-          </div>
+          <Link to="/place-order" className="text-card-section-two flex">
+            <button
+              className="primary-btn-lg"
+              onClick={() => addOrders({ name: "bhakti" })}
+            >
+              Place Order
+            </button>
+          </Link>
         </div>
       )}
     </>
