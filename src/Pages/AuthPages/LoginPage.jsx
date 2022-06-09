@@ -20,7 +20,13 @@ export const LoginPage = () => {
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
-      navigate(location?.state?.from?.pathname || "/product-listing");
+      navigate(
+        location?.state?.from?.pathname &&
+          (location?.state?.from?.pathname === "/place-order" ||
+            location?.state?.from?.pathname === "/checkout")
+          ? "/product-listing"
+          : location?.state?.from?.pathname
+      );
       localStorage.setItem("userLoginToken", data.encodedToken);
       setShowLoader(false);
       toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
@@ -34,7 +40,13 @@ export const LoginPage = () => {
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
-      navigate(location?.state?.from?.pathname || "/product-listing");
+      navigate(
+        location?.state?.from?.pathname &&
+          (location?.state?.from?.pathname === "/place-order" ||
+            location?.state?.from?.pathname === "/checkout")
+          ? "/product-listing"
+          : location?.state?.from?.pathname
+      );
       localStorage.setItem("userLoginToken", data.encodedToken);
       setShowLoader(false);
       toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
@@ -83,7 +95,7 @@ export const LoginPage = () => {
           </div>
           <span
             className="center-text login-guest"
-            onClick={() => GuestLoginHandler("johndoe@gmail.com", "johnDoe123")}
+            onClick={() => GuestLoginHandler("nancy@gmail.com", "nancy123")}
           >
             Log in as a guest.
           </span>

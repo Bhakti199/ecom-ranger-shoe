@@ -6,7 +6,14 @@ import { calculatePrice, discountPrice } from "./CardUtils";
 import { AiOutlineMinus } from "react-icons/ai";
 import { FaRupeeSign } from "react-icons/fa";
 export const BillCardForCart = () => {
-  const { user, isUserLoggedIn, addOrders } = useUser();
+  const {
+    user,
+    isUserLoggedIn,
+    addOrders,
+    proceedOrder,
+    setProceedOrder,
+    setFinalPrice,
+  } = useUser();
   const { cart } = user;
 
   let price = calculatePrice(cart) ?? 0;
@@ -53,14 +60,16 @@ export const BillCardForCart = () => {
             </p>
           </div>
           <div className="text-card-section-two flex">
-            <button
+            <Link
+              to="/place-order"
               className="primary-btn-lg"
-              onClick={() =>
-                addOrders({ items: cart, _id: uuid(), totalAmount, discount })
-              }
+              onClick={() => {
+                setFinalPrice(totalAmount);
+                setProceedOrder(true);
+              }}
             >
-              Place Order
-            </button>
+              Proceed Order
+            </Link>
           </div>
         </div>
       )}

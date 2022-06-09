@@ -1,7 +1,22 @@
 .place-order-page {
-  min-height: 80vh;
-  width: 100vw;
+  position: relative;
+  min-height: 82vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.place-order-msg {
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+}
+.place-order-button {
+  margin-top: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  width: 14rem;
+  border: none;
+  color: var(--white-color);
+  background-color: var(--black-color);
 }

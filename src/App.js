@@ -17,6 +17,7 @@ import {
   SignUpPage,
   PlaceOrderPage,
   UserProfilePage,
+  CheckOutPage,
 } from "./Pages/index";
 import { useProductList } from "./Context";
 import MockMan from "mockman-js";
@@ -76,6 +77,14 @@ function App() {
             </RequiresAuth>
           }
         />
+        <Route
+          path="/checkout"
+          element={
+            <RequiresAuth>
+              <CheckOutPage />
+            </RequiresAuth>
+          }
+        />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
         <Route
@@ -85,7 +94,7 @@ function App() {
       </Routes>
       <Toaster
         position="top-center"
-        toastOptions={{ className: "toast", duration: 2000 }}
+        toastOptions={{ className: "toast", duration: 3000 }}
       />
       <Footer />
     </>

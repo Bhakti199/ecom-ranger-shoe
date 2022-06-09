@@ -1,7 +1,6 @@
 div .toast {
   width: 20rem;
-  background-color: var(--lightest-blue);
-  border-bottom: 7px solid var(--medium-blue);
+  background-color: var(--mint-color);
 }
 .mbl-navbar {
   display: none;

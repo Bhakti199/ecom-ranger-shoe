@@ -342,6 +342,13 @@ export const products = [
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct5_GrcZ8VK9n.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658843653",
     modelImg:
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel5_SV9aBsGjy.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658840159",
+    imgOne:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1649913101/18-1-product_w65wen.jpg",
+    imgTwo:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1649913101/18-2_swsqyz.webp",
+    imgThree:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1649913101/18-3_w6mysg.webp",
+
     productBrand: "Hrx",
     categoryName: "Kids, Best Sellers",
     productDetail: "Revolution 6 Next Nature Road Running Shoes",
@@ -388,6 +395,12 @@ export const products = [
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct2_fxuz6c2DE.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658841296",
     modelImg:
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel2_N4gDb1VzE.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839245",
+    imgOne:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/111_vjppei.webp",
+    imgTwo:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/11_j0nhro.webp",
+    imgThree:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/1_ji0ain.webp",
     productBrand: "Hrx",
     categoryName: "Kids,Best Sellers",
     productDetail: "Revolution 6 Next Nature Road Running Shoes",
@@ -459,9 +472,16 @@ export const products = [
     _id: uuid(),
     id: 16,
     productImg:
-      "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct4_pUPTa3hH3.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658843055",
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506488/163_xnfhhv.webp",
     modelImg:
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel4_yuyL9x3QD.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839554",
+    imgOne:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506488/163_xnfhhv.webp",
+    imgTwo:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/161_bh7lpd.webp",
+    imgThree:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506488/16_qhx4cb.webp",
+
     productBrand: "Reebok",
     categoryName: "Kids,New Arrivals",
     productDetail: "Revolution 4 Running Shoes For Men  (Black)",
@@ -509,6 +529,12 @@ export const products = [
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsproduct1_2dYSr5Y0s.webp?ik-sdk-version=javascript-1.4.3&updatedAt=1649658840667",
     modelImg:
       "https://ik.imagekit.io/yol3sixl2xj/product-listing/kids/kidsmodel1_7J2ki8cQT.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1649658839285",
+    imgOne:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/111_vjppei.webp",
+    imgTwo:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/11_j0nhro.webp",
+    imgThree:
+      "https://res.cloudinary.com/bhakti1801/image/upload/v1654506487/1_ji0ain.webp",
     productBrand: "Reebok",
     categoryName: "Kids, New Arrivals",
     productDetail: "Revolution 4 Running Shoes For Men  (Black)",

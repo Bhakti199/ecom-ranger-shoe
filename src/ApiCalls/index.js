@@ -9,3 +9,5 @@ export { getWishlistCall } from "./getWishlistCall";
 export { addAddressCall } from "./addAddressCall";
 export { removeAddressCall } from "./removeAddressCall";
 export { addOrdersCall } from "./addOrdersCall";
+export { updateAddressCall } from "./updateAddressCall";
+export { clearCartCall } from "./clearCartCall";

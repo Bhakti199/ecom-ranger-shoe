@@ -98,3 +98,39 @@ export const removeItemFromAddressHandler = function (schema, request) {
     );
   }
 };
+
+/**
+ * This handler handles changing user's address.
+ * send POST Request at /api/user/address/:addressId
+ * body contains {address}
+ * */
+
+export const updateAddressHandler = function (schema, request) {
+  const addressId = request.params.addressId;
+  const userId = requiresAuth.call(this, request);
+  try {
+    if (!userId) {
+      new Response(
+        404,
+        {},
+        {
+          errors: ["The email you entered is not Registered. Not Found error"],
+        }
+      );
+    }
+    const addresses = schema.users.findBy({ _id: userId }).addresses;
+
+    const { address } = JSON.parse(request.requestBody);
+    console.log(addresses, address);
+    const updatedAddressList = addresses.map((addr) =>
+      addr._id === addressId
+        ? { ...addr, ...address, updatedAt: formatDate() }
+        : addr
+    );
+
+    this.db.users.update({ _id: userId }, { addresses: updatedAddressList });
+    return new Response(200, {}, { addresses: updatedAddressList });
+  } catch (error) {
+    return new Response(500, {}, { error });
+  }
+};

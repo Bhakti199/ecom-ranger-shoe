@@ -8,6 +8,8 @@ import {
   addAddressCall,
   removeAddressCall,
   addOrdersCall,
+  updateAddressCall,
+  clearCartCall,
 } from "../../ApiCalls";
 import { useProductList } from "../../Context";
 import { useNavigate } from "react-router-dom";
@@ -20,6 +22,12 @@ const UserProvider = ({ children }) => {
   const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
   const [addressForOrder, setAddressForOrder] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [proceedOrder, setProceedOrder] = useState(false);
+  const [finalPrice, setFinalPrice] = useState("");
+  const [selectAddress, setSelectAddress] = useState({
+    isAddressSelected: false,
+  });
+
   const [user, setUser] = useState({});
   const navigate = useNavigate();
 
@@ -57,6 +65,11 @@ const UserProvider = ({ children }) => {
     setUser((prevUser) => ({ ...prevUser, cart }));
   };
 
+  const clearCart = async () => {
+    const { cart, status } = await clearCartCall();
+    if (status === 200 || status === 201)
+      setUser((prevUser) => ({ ...prevUser, cart }));
+  };
   const addItemToWishlist = async (product) => {
     if (isUserLoggedIn) {
       setShowLoader(true);
@@ -110,6 +123,18 @@ const UserProvider = ({ children }) => {
     }
   };
 
+  const updateAddress = async (address) => {
+    setShowLoader(true);
+    const { addresses, status } = await updateAddressCall(address);
+    console.log({ addresses, status });
+    if (status === 200 || status === 201) {
+      setUser((prevUser) => ({ ...prevUser, addresses }));
+      setShowLoader(false);
+      toast("Address updated successfully", { icon: <BsCheckCircleFill /> });
+    } else {
+      toast("Please try after some time");
+    }
+  };
   const addOrders = async (order) => {
     setShowLoader(true);
     const { orders, status } = await addOrdersCall(order);
@@ -140,6 +165,14 @@ const UserProvider = ({ children }) => {
         setAddressForOrder,
         searchInput,
         setSearchInput,
+        updateAddress,
+        proceedOrder,
+        setProceedOrder,
+        selectAddress,
+        setSelectAddress,
+        finalPrice,
+        setFinalPrice,
+        clearCart,
       }}
     >
       {children}

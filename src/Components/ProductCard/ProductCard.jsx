@@ -116,16 +116,15 @@ export const ProductCard = ({ imageDisplay }) => {
                   <div className="vertical-card-text">
                     <p className="margin-top-bottom-zero product-brand-name">
                       {item.productDetail}
-                      {item.id}
                     </p>
-                    <p className="margin-top-bottom-zero ">
+                    <div className="margin-top-bottom-zero ">
                       {item.productBrand}
                       {item.id}
-                    </p>
+                    </div>
                     <div className="">
-                      <p className="margin-top-bottom-zero">
+                      <div className="margin-top-bottom-zero">
                         Rs.{item.price} ({item.ratings})
-                      </p>
+                      </div>
                     </div>
                   </div>
                   <Link

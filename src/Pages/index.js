@@ -7,3 +7,4 @@ export { LoginPage } from "./AuthPages/LoginPage";
 export { SignUpPage } from "./AuthPages/SignUpPage";
 export { UserProfilePage } from "./UserProfilePage/UserProfilePage";
 export { PlaceOrderPage } from "./PlaceOrderPage/PlaceOrderPage";
+export { CheckOutPage } from "./CheckOutPage/CheckOutPage";

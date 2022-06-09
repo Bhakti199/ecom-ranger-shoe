@@ -32,14 +32,7 @@ export const UserProfilePage = () => {
         >
           Address
         </button>
-        <button
-          className={`profile-button ${
-            showClickedSection === "orders" && "bg-color-profile-button"
-          }`}
-          onClick={() => setShowClickedSection("orders")}
-        >
-          My Orders
-        </button>
+
         <button
           className={`profile-button ${
             showClickedSection === "settings" && "bg-color-profile-button"
