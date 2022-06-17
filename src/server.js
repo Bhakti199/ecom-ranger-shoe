@@ -1,4 +1,5 @@
 import { Server, Model, RestSerializer } from "miragejs";
+import { v4 as uuid } from "uuid";
 import {
   loginHandler,
   signupHandler,
@@ -68,7 +69,17 @@ export function makeServer({ environment = "development" } = {}) {
           ...item,
           cart: [],
           wishlist: [],
-          addresses: [],
+          addresses: [
+            {
+              _id: uuid(),
+              mobileNumber: 9898767654,
+              area: "Main highway",
+              city: "Nagpur",
+              state: "Maharashtra",
+              landmark: "Nayan Park",
+              pincode: "444890",
+            },
+          ],
           orders: [],
         })
       );
