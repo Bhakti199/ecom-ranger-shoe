@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import toast from "react-hot-toast";
 import "./UserProfilePage.css";
 import { useUser } from "../../Context";
 import { BsPerson } from "react-icons/bs";

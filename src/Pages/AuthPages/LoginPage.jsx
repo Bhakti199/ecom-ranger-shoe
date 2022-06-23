@@ -40,6 +40,7 @@ export const LoginPage = () => {
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
+      localStorage.setItem("userLoginToken", data.encodedToken);
       navigate(
         location?.state?.from?.pathname &&
           (location?.state?.from?.pathname === "/place-order" ||
@@ -47,7 +48,7 @@ export const LoginPage = () => {
           ? "/product-listing"
           : location?.state?.from?.pathname
       );
-      localStorage.setItem("userLoginToken", data.encodedToken);
+
       setShowLoader(false);
       toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
     } else {
