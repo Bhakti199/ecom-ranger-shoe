@@ -43,11 +43,12 @@ export const LoginPage = () => {
       setUser({ ...data.foundUser });
       localStorage.setItem("userLoginToken", data.encodedToken);
       navigate(
-        location?.state?.from?.pathname &&
-          (location?.state?.from?.pathname === "/place-order" ||
-            location?.state?.from?.pathname === "/checkout")
-          ? "/product-listing"
-          : location?.state?.from?.pathname
+        location?.state?.from?.pathname
+          ? location?.state?.from?.pathname === "/place-order" ||
+            location?.state?.from?.pathname === "/checkout"
+            ? "/product-listing"
+            : location?.state?.from?.pathname || location.pathname
+          : "/product-listing"
       );
 
       setShowLoader(false);
