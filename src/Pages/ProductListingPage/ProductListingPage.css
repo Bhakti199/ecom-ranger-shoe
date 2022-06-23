@@ -15,7 +15,7 @@
 .products {
   display: grid;
   gap: 1rem;
-  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
 }
 .select-menu {
   padding: 6px 1rem;
@@ -70,8 +70,8 @@
 }
 @media screen and (max-width: 900px) {
   .products {
-    gap: 5px;
-    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+    gap: 3px;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
   }
   .sort-by-display-control {
     display: none;

@@ -172,15 +172,7 @@ export const FilterSidebar = ({ openFilterBar, setOpenFilterBar }) => {
               }
             />
           </span>
-          <span>
-            <BsFillCircleFill
-              color="var(--red-color)"
-              className="cursor"
-              onClick={() =>
-                dispatch({ type: "SORT_BY_COLOR", payload: "red" })
-              }
-            />
-          </span>
+
           <span>
             <BsFillCircleFill
               color="var(--black-color)"

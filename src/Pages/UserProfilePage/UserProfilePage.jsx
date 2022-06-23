@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import "./UserProfilePage.css";
 import { useUser } from "../../Context";
-import { BsPerson } from "react-icons/bs";
+import { BsPerson, BsCheckCircleFill } from "react-icons/bs";
 import { Address } from "./ProfileSubComponents/Address/Address";
 import { MyOrders } from "./ProfileSubComponents/MyOrders/MyOrders";
 export const UserProfilePage = () => {

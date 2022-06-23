@@ -11,7 +11,7 @@ export const LoginPage = () => {
   const { setIsUserLoggedIn, setUser, isUserLoggedIn } = useUser();
   const navigate = useNavigate();
   const location = useLocation();
-
+  console.log(location);
   const loginDetailsHandler = async (event) => {
     event.preventDefault();
     let [email, password] = event.target.elements;
@@ -20,6 +20,7 @@ export const LoginPage = () => {
     if (status === 200) {
       setIsUserLoggedIn(true);
       setUser({ ...data.foundUser });
+      localStorage.setItem("userLoginToken", data.encodedToken);
       navigate(
         location?.state?.from?.pathname &&
           (location?.state?.from?.pathname === "/place-order" ||
@@ -27,7 +28,7 @@ export const LoginPage = () => {
           ? "/product-listing"
           : location?.state?.from?.pathname
       );
-      localStorage.setItem("userLoginToken", data.encodedToken);
+
       setShowLoader(false);
       toast("successfully logged in.", { icon: <BsCheckCircleFill /> });
     } else {
